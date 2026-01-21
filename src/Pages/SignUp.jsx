@@ -8,13 +8,13 @@ function SignUp() {
                 <img className='Mainbg' src='../../public/images/mainbg.png' alt=''/>
             </div>
             <div className='Welcomediv2'>
-                <div className='welcome2'><h1>Welcome To Barter!</h1></div>
+                <div className='welcome2'><h1><span>Welcome To</span> <span>Barter!</span></h1></div>
 
                 <div className='name'>
                     <h1 className='nametext'>Name</h1>
                     <div className='nameinput'>
-                        <input className='inputbox' placeholder='First name'></input>
-                        <input className='inputbox' placeholder='last name'></input>
+                        <input className='inputbox2' placeholder='First name'></input>
+                        <input className='inputbox2' placeholder='last name'></input>
                     </div>
                 </div>
 

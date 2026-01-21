@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    box-sizing: border-box;
+}
+.sentrequestsdiv {
+    position: absolute;
+    padding-left: 7.090vw;
+    padding-right: 7.090vw;
+    width: 77.777vw;
+    top: 10.888vh;
+    left: 19.791vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.569vw;
+    justify-content: center;
+}
+.optiondiv {
+    position: absolute;
+    width: 37.986vw;
+    height: 3.955vh;
+    display: flex;
+    top: 5.957vh;
+    left: 39.687vw;
+    background-color: rgba(217, 217, 217, 0.5);
+    align-items: center;
+    border-radius: 100px;
+}
+.receiveddiv {
+    width: 18.715vw;
+    height: 3.173vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sentdiv {
+    width: 18.715vw;
+    height: 3.173vh;
+    display: flex;
+    border-radius: 100px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+}
+.sent {
+    font-family: sans-serif;
+    font-weight: 510;
+    font-style: inherit;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: -0.23px;
+   
+    
+}
+.received {
+    font-family: sans-serif;
+    font-weight: 510;
+    font-style: inherit;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: -0.23px;
+    text-align: center;
+    vertical-align: middle;
+}
+.status-badge {
+    width: 3.541vw;
+    height: 2.050vh;
+    padding-right: 10px;
+    padding-left: 10px;
+    gap: 10px;
+    opacity: 1;
+    border-radius: 7px;
+}
+.New {
+      background-color: rgba(140, 228, 144, 1);
+}
+
+
+.status-box {
+    width: 8.541vw;
+    height: 2.929vh;
+    border-radius: 17px;
+}
+.Approved {
+    font-family: 'Inter';
+    font-weight: 600;
+    font-style: Bold;
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: -1.5%;
+    background-color: rgba(131, 133, 0, 1);
+}

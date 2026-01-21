@@ -41,23 +41,25 @@ body {
     margin-top: 12.402vh;
     margin-left: 4.513vw;
     width: 27.848vw;
-    height: 39.843vh;
+   height: 43.843vh;
+   flex-shrink: 0;
 }
 .welcome {
     width: 27.847vw;
     height: 5.664vh;
     font-family: 'Inter';
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 2.6rem;
     line-height: 120%;
     letter-spacing: -2.5%;
     color: #05191D;
     margin-bottom: 1.562vh;
 }
 .emaildiv {
-    display: block;
+    display: flex;
+    flex-direction: column;
     gap: 0.976vh;
-    height: 39.355vh;
+    height: auto;
     width: 54.444vw;
     margin-bottom: 1.562vh;
 }
@@ -70,12 +72,18 @@ body {
 }
 .inputbox {
     width: 27.847vw;
-    height: 4.589vh;
+    height: 5.589vh;
     opacity: 1;
     border-radius: 15px;
     border-width: 3px;
+    padding: 15px 10px;
 }
 .passworddiv {
+    display: flex;
+    flex-direction: column;
+    gap: 0.976vh;
+    height: auto;
+    width: 54.444vw;
     margin-bottom: 1.562vh;
 }
 .passwordtext {
@@ -104,14 +112,16 @@ body {
     text-align: right;
 }
 .logindiv {
+    display: flex;
     width: 27.847vw;
-    height: 4.589vh;
+    height: 8vh !important;
     opacity: 1;
     border-radius: 15px;
     border-width: 3px;
     background-color: #2947D8;
     margin-bottom: 1.562vh;
-    justify-self: center;
+    justify-content: center;
+    align-items: center;
 }
 .login {
     font-family: 'Inter';
@@ -147,18 +157,22 @@ body {
     margin-top: 3.808vh;
     margin-left: 4.513vw;
     width: 27.847vw;
-    height: 57.031vh;
+    height: auto;
+    gap: 1.562vh;
+}
+.welcome2 span {
+    display: block;
 }
 .welcome2 {
     width: 27.847vw;
-    height: 5.664vh;
+    height: auto;
     font-family: 'Inter';
     font-weight: 600;
-    font-size: 1.2rem;
-    line-height: 120%;
+    font-size: 2rem;
+    line-height: 1.1;
     letter-spacing: -2.5%;
     color: #05191D;
-    margin-bottom: 1.562vh;
+   /* margin-bottom: 1.562vh;*/
 }
 .nametext {
     font-family: 'Inter';
@@ -167,8 +181,19 @@ body {
     line-height: 130%;
     letter-spacing: -1.5%;
 }
+.inputbox2 {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5vh;
+    width: 100%;
+    height: 5.589vh;
+    opacity: 1;
+    border-radius: 15px;
+    border-width: 3px;
+    padding: 15px 10px;
+}
 .emaildiv2 {
-    margin-bottom: 1vh;
+    margin-bottom: 0.5vh;
 }
 .emailtext2 {
     font-family: 'Inter';
@@ -195,14 +220,16 @@ body {
     margin-bottom: 1.562vh;
 }
 .signupdiv {
+    display: flex;
     width: 27.847vw;
     height: 4.589vh;
     opacity: 1;
     border-radius: 15px;
     border-width: 3px;
     background-color: #2947D8;
-    margin-bottom: 1vh;
-    justify-self: center;
+    margin-bottom: 0.5vh;
+    justify-content: center;
+    align-items: center;
 }
 .signup {
     font-family: 'Inter';
