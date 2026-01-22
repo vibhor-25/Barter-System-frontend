@@ -110,6 +110,7 @@ body {
     text-decoration-thickness: 0%;
     color: #2947D8;
     text-align: right;
+    cursor: pointer;
 }
 .logindiv {
     display: flex;
@@ -150,6 +151,7 @@ body {
     text-decoration-thickness: 0%;
     color: #2947D8;
     text-align: right;
+    cursor: pointer;
 }
 .Welcomediv2 {
     display: flex;
@@ -258,6 +260,7 @@ body {
     color: #2947D8;
     text-align: right;
     margin-top: 0%;
+    cursor: pointer;
 }
 .alrdiv {
     display: flex;

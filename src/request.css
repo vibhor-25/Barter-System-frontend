@@ -17,29 +17,53 @@
 .optiondiv {
     position: absolute;
     width: 37.986vw;
-    height: 3.955vh;
+    height: 3.996vh;
     display: flex;
     top: 5.957vh;
     left: 39.687vw;
     background-color: rgba(217, 217, 217, 0.5);
     align-items: center;
     border-radius: 100px;
+    padding: 0px 5px;
+}
+.active-pill {
+  position: absolute;
+  top: 10%;
+  left: 1%;
+  width: 18.615vw; 
+  height: 3.173vh;
+  background-color: white;
+  border-radius: 150px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+.active-pill.left {
+  transform: translateX(0);
+}
+.active-pill.right {
+  transform: translateX(100%);
 }
 .receiveddiv {
     width: 18.715vw;
     height: 3.173vh;
     display: flex;
+    flex: 1;
     justify-content: center;
     align-items: center;
+    z-index: 1;
+    cursor: pointer;
 }
 .sentdiv {
     width: 18.715vw;
     height: 3.173vh;
     display: flex;
+    flex: 1;
     border-radius: 100px;
-    background-color: white;
+    background-color: transparent;
     justify-content: center;
     align-items: center;
+    z-index: 1;
+    cursor: pointer;
 }
 .sent {
     font-family: sans-serif;
@@ -48,7 +72,7 @@
     font-size: 15px;
     line-height: 20px;
     letter-spacing: -0.23px;
-   
+    pointer-events: none;
     
 }
 .received {
@@ -60,6 +84,7 @@
     letter-spacing: -0.23px;
     text-align: center;
     vertical-align: middle;
+    pointer-events: none;
 }
 .status-badge {
     width: 3.541vw;
