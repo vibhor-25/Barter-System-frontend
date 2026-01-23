@@ -1,26 +1,33 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Menu from '../components/Menu'
 import ReqCard from '../components/ReqCard';
 import sentRequests from '../../public/data/reqsent';
 import '../../src/request.css';
 const Requests = () => {
-  
+  const [activeTab, setActiveTab] = useState(0);
   return (
     <div>
         <img src = '/images/MenuBg.png' alt='Background Image' className='fixed top-0 left-0 w-full h-full -z-10 object-cover'/>
         <Menu />
         <div className='optiondiv'>
-          <div className='receiveddiv'>
+          <div className={`active-pill ${activeTab === 0 ? 'left' : 'right'}`} />
+          <div className='receiveddiv' onClick={() => {console.log("Received Clicked"); setActiveTab(0)}}>
           <h1 className='received'>Received</h1>
           </div>
-          <div className='sentdiv'>
+          <div className='sentdiv' onClick={() => { console.log("Sent Clicked"); setActiveTab(1); }}>
           <h1 className='sent'>Sent</h1>
           </div>
         </div>
         <div className='sentrequestsdiv'>
-          {sentRequests.map((item) => (
+          {activeTab === 1 ? (
+          sentRequests.map((item) => (
             <ReqCard key={item.id} product={item} />
-          ))}
+          ))
+          ) : (
+        <div style={{color: 'white', textAlign: 'center', width: '100%'}}>
+        <h1>No Received Requests Yet</h1>
+        </div>
+)}
         </div>
       
     </div>
