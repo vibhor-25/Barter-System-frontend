@@ -20,7 +20,7 @@ return (
                     </div>
                     <h3 className='text-[#1C3700] font-InriaSans text-2xl'>{product.title}</h3>
                     <p className='text-[#1C3700] font-InriaSans text-xl'>{product.desc}</p>
-                    <button className='bg-[#9EFF46] rounded-2xl px-10 py-2 text-[#1C3700] font-Inter relative bottom-0 hover:bg-[#8EDC1B]' >Make an Offer</button>
+                    <button className='bg-[#9EFF46] rounded-2xl px-10 py-2 text-[#1C3700] font-Inter relative bottom-0 hover:bg-[#8EDC1B]' > { "statusi" in product ? "Make an Offer" : "See Offers"}</button>
                 </div>
             ))}
         </div>
