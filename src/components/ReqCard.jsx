@@ -22,7 +22,7 @@ return (
                     <h3 className='text-[#1C3700] font-InriaSans text-2xl'>{product.title}</h3>
                     <p className='text-[#1C3700] font-InriaSans text-xl'>{product.desc}</p>
                     <span className={`status-badge ${product.statusi ? 'Old' : 'New'}`}>
-                        {product.id % 2 === 0 ? "Old" : "New"}
+                        {product.statusi ? "Old" : "New"}
                     </span>
                     <button className={`status-box ${product.statusi ? 'Approved' : 'Pending'}`}>
                         {product.statusi ? "Approved" : "Pending"}

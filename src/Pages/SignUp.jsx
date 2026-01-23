@@ -1,5 +1,10 @@
-import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 function SignUp() {
+    const navigate = useNavigate();
+    const handleDivClick = () => {
+    navigate('/home');
+  };
     return(
         <>
         <img className='background' src='../../public/images/backgroundimg.png' alt=''/>
@@ -33,10 +38,10 @@ function SignUp() {
                     <input className='inputbox' placeholder='eg. abc'></input>
                 </div>
 
-                <div className='signupdiv'>
-                    <Link to='/home' className='signup-buton-link'>
+                <div className='signupdiv' 
+                 onClick={handleDivClick}
+                 style={{ cursor: 'pointer' }}>
                     <h1 className='signup'>Sign Up</h1>
-                    </Link>
                 </div>
 
                 <div className='alrdiv'>

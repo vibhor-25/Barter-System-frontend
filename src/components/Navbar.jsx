@@ -9,7 +9,7 @@ const Navbar = () => {
         <img src='public/images/BarterLogo.png' alt='Barter Logo' className='h-14 px-5'/>
         <ul className='flex items-center gap-6 '>
             <li>
-                <ul className='flex justify-center items-center gap-8.5 font-black '>
+                <ul className='lg:flex justify-center items-center gap-8.5 font-black hidden '>
                     <Link id='Requests' to='/requests' className='text-2xl font-semibold font-Inter hover:scale-105 hover:cursor-pointer hover:text-[#193301]'>Requests</Link>
                     <Link id='Wishlist' to='/wishlist' className='text-2xl font-semibold font-Inter hover:scale-105 hover:cursor-pointer hover:text-[#193301]'>Wishlist</Link>
                     <Link id='AddItem' to='/settings' className='text-2xl font-semibold font-Inter hover:scale-105 hover:cursor-pointer hover:text-[#193301]'>Settings</Link>

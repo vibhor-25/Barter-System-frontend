@@ -87,30 +87,51 @@
     pointer-events: none;
 }
 .status-badge {
-    width: 3.541vw;
+    position: relative;
+    right: 6vw;
+    width: 2.541vw;
     height: 2.050vh;
-    padding-right: 10px;
-    padding-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
     opacity: 1;
     border-radius: 7px;
 }
 .New {
-      background-color: rgba(140, 228, 144, 1);
+      background-color: rgb(98, 238, 105);
+}
+.Old {
+    background-color: rgba(143, 173, 234, 1);
+;
 }
 
 
 .status-box {
-    width: 8.541vw;
+    position: relative;
+    left: 4.5vw;
+    width: 5.041vw;
     height: 2.929vh;
-    border-radius: 17px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .Approved {
     font-family: 'Inter';
     font-weight: 600;
     font-style: Bold;
-    font-size: 20px;
+    font-size: 13px;
     line-height: 130%;
     letter-spacing: -1.5%;
-    background-color: rgba(131, 133, 0, 1);
+    background-color: rgba(56, 230, 3, 0.579);
+}
+.Pending {
+    font-family: 'Inter';
+    font-weight: 600;
+    font-style: Bold;
+    font-size: 13px;
+    line-height: 130%;
+    letter-spacing: -1.5%;
+    background-color: rgba(250, 255, 206, 1);
 }

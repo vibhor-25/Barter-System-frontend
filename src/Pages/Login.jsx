@@ -1,5 +1,10 @@
 import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 function Login() {
+    const navigate = useNavigate();
+  const handleDivClick = () => {
+    navigate('/home');
+  };
     return(
         <>
         <img className='background' src='../../public/images/backgroundimg.png' alt=''/>
@@ -24,10 +29,10 @@ function Login() {
                     <h1 className='forgot'>Forget Password?</h1>
                 </div>
 
-                <div className='logindiv'>
-                    <Link to='/home' className='signup-buton-link'>
+                <div className='logindiv'
+                onClick={handleDivClick}
+                style={{cursor: 'pointer'}}>
                     <h1 className='login'>Login</h1>
-                    </Link>
                 </div>
 
                 <div className='notrdiv'>
