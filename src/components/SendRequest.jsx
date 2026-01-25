@@ -14,15 +14,18 @@ const SendRequest = ({ShowSendRequest, setShowSendRequest}) => {
 
     useEffect(() => {
         setBgTint(true);
-    },[])
 
-    document.addEventListener('click', (e) => {
-        const tint = document.getElementById('tint');
-        if ((tint.contains(e.target))) {
-            console.log("Clicked outside");
-            handleClose();
+        const handleDocClick = (e) => {
+            const tint = document.getElementById('tint');
+            if (ShowSendRequest && tint && tint.contains(e.target)) {
+                console.log('Clicked outside');
+                handleClose();
+            }
         }
-    })
+
+        document.addEventListener('click', handleDocClick)
+        return () => document.removeEventListener('click', handleDocClick)
+    }, [ShowSendRequest])
 
   return (
     <div className={`popup-box ${ShowSendRequest ? '' : 'hidden'}`}>

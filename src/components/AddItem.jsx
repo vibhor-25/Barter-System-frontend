@@ -10,19 +10,23 @@ const AddItem = ({ShowAddItem, setShowAddItem}) => {
     const handleClose = () => {
         setBgTint(false);
         setShowAddItem(false);
+        
     }
 
     useEffect(() => {
         setBgTint(true);
-    },[])
 
-    document.addEventListener('click', (e) => {
-        const tint = document.getElementById('tint');
-        if ((tint.contains(e.target))) {
-            console.log("Clicked outside");
-            handleClose();
+        const handleDocClick = (e) => {
+            const tint = document.getElementById('tint');
+            if (ShowAddItem && tint && tint.contains(e.target)) {
+                console.log('Clicked outside 1');
+                handleClose();
+            }
         }
-    })
+
+        document.addEventListener('click', handleDocClick)
+        return () => document.removeEventListener('click', handleDocClick)
+    }, [ShowAddItem])
 
   return (
     <div className={`popup-box ${ShowAddItem ? '' : 'hidden'}`}>
