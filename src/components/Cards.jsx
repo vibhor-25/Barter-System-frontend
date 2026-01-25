@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { HeartPlus } from 'lucide-react';
 import { MapPin } from 'lucide-react';
 
-const Cards = ({products, selectedLoc}) => {
+const Cards = ({products, selectedLoc, showDistance=true}) => {
 return (
         <div className='flex justify-center gap-5 flex-wrap my-10 p-5 mx-20 rounded-lg shadow-lg'>
             {products.map((product) => 
@@ -14,7 +14,7 @@ return (
                         <img src={product.img} alt={product.title} className='w-full h-full object-cover rounded-2xl'/>
                         { "statusi" in product && <HeartPlus className={`absolute size-7 shadow-lg top-2 right-2 cursor-cell bg-white p-1 font-semibold rounded-full ${product.statusi ? 'text-red-500' : 'text-gray-400'}`} /> }
                        
-                        <div className='absolute bottom-1 right-1 bg-[#FFDBC5] text-[#442600] flex items-center gap-1 px-2 py-0.5 rounded-full'>
+                        <div className={`absolute bottom-1 right-1 bg-[#FFDBC5] text-[#442600] flex items-center gap-1 px-2 py-0.5 rounded-full ${showDistance ? '' : 'hidden'}`}>
                             <MapPin className='size-4'/>
                             <span className='text-sm'>{Math.floor(Math.random() * product.id ) + 1 + " km away"}</span>
                         </div> 
