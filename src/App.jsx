@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './index.css';
 import './styles/normal.css';
 import { BrowserRouter, Routes, Route ,Link } from 'react-router-dom'
@@ -11,9 +11,14 @@ import Items from './Pages/Items'
 import Login from './Pages/Login'
 import SignUp from './Pages/SignUp'
 
+export const tintContext = React.createContext();
 const App = () => {
+
+  const [bgTint, setBgTint] = useState(false);
+
   return (
       <BrowserRouter>
+      <tintContext.Provider value={{ bgTint, setBgTint }}>
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/signup' element={<SignUp />} />
@@ -24,6 +29,8 @@ const App = () => {
           <Route path='/myprofile' element={<MyProfile />} />
           <Route path='/settings' element={<Settings />} />
         </Routes>
+        {bgTint && <div className="tint" id='tint'></div>}
+      </tintContext.Provider>
       </BrowserRouter>
   )
 }
