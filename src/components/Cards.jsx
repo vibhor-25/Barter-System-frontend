@@ -4,12 +4,20 @@ import { HeartPlus } from 'lucide-react';
 import { MapPin } from 'lucide-react';
 
 const Cards = ({products, selectedLoc, showDistance=true}) => {
-return (
-        <div className='flex justify-center gap-5 flex-wrap my-10 p-5 mx-20 rounded-lg shadow-lg'>
-            {products.map((product) => 
+        const [hoveredId, setHoveredId] = useState(null);
 
+return (
+        <div className='flex justify-center gap-7 flex-wrap my-5 p-5 mx-15 rounded-lg shadow-lg'>
+            {products.map((product) => (
                 (selectedLoc === 'All Locations' || product.loc.city === selectedLoc) && (
-                <div key={product.id} className="card w-61 h-100 bg-[#E3FFC9] p-2 rounded-2xl flex flex-col gap-3 items-center shadow-md hover:scale-102 hover:-translate-y-2 transition-transform duration-300">
+                <div key={product.id} 
+                onMouseEnter={() => setHoveredId(product.id)}
+                onMouseLeave={() => setHoveredId(null)}
+                className="card w-61 h-auto p-2 rounded-2xl flex flex-col gap-3 items-start shadow-md hover:scale-102 hover:-translate-y-2 transition-transform duration-300 group relative"
+                style = {{    background: hoveredId === product.id 
+                        ? 'linear-gradient(to bottom right, rgba(111, 133, 235, 1), rgba(112, 255, 217, 1))' 
+                        : 'rgba(237,244,266,1)'
+                        }}>
                     <div className="relative w-56 h-50">
                         <img src={product.img} alt={product.title} className='w-full h-full object-cover rounded-2xl'/>
                         { "statusi" in product && <HeartPlus className={`absolute size-7 shadow-lg top-2 right-2 cursor-cell bg-white p-1 font-semibold rounded-full ${product.statusi ? 'text-red-500' : 'text-gray-400'}`} /> }
@@ -19,15 +27,18 @@ return (
                             <span className='text-sm'>{Math.floor(Math.random() * product.id ) + 1 + " km away"}</span>
                         </div> 
                     </div>
-                    <h3 className='text-[#1C3700] font-InriaSans text-2xl'>{product.title}</h3>
-                    <p className='text-[#1C3700] font-InriaSans text-xl'>{product.desc}</p>
-                    <button className='bg-[#9EFF46] rounded-2xl px-10 py-2 text-[#1C3700] font-Inter relative bottom-0 hover:bg-[#8EDC1B]' > { "statusi" in product ? "Make an Offer" : "See Offers"}</button>
-                </div>
-            )
-            
-            )}
+                    <h3 className='text-[#1C3700] font-Inter font-semibold  text-2xl pl-2 text-left'>{product.title}</h3>
+                    <p className='text-[#1C3700] font-Inter font-normal text-0.5xl pl-2 pr-2 pb-4 flex-1'>{product.desc}</p>
+                    <span 
+                    className={`mt-auto inline-flex items-center justify-center px-2 py-0.5 rounded-md text-[12px] font-medium tracking-tight ${product.statusi ? 'bg-[#C2D1FF] text-[#001D6E]' : 'bg-[#D1FFC2] text-[#1C3700]'}
+                       ${hoveredId === product.id ? "opacity-0" : "opacity-100"}`} 
+                       >
+                       {product.statusi ? "Used" : "New"}
+                    </span>
+                    <button className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] bg-[#3F51B5] text-white font-semibold py-2 rounded-lg opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">Make an offer</button>
+                </div>)
+            ))}
         </div>
 )
 }
-
 export default Cards

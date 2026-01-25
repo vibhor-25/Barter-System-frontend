@@ -24,7 +24,7 @@
     background-color: rgba(217, 217, 217, 0.5);
     align-items: center;
     border-radius: 100px;
-    padding: 0px 5px;
+    padding: 5px 5px;
 }
 .active-pill {
   position: absolute;
@@ -88,7 +88,8 @@
 }
 .status-badge {
     position: relative;
-    right: 6vw;
+    font-size: 0.8rem;
+    left: 0.5vw;
     width: 2.541vw;
     height: 2.050vh;
     display: flex;
@@ -109,7 +110,8 @@
 
 .status-box {
     position: relative;
-    left: 4.5vw;
+    left: 10vw;
+    bottom: 0.5vh;
     width: 5.041vw;
     height: 2.929vh;
     border-radius: 15px;
@@ -121,7 +123,9 @@
     font-family: 'Inter';
     font-weight: 600;
     font-style: Bold;
-    font-size: 13px;
+    font-size: 0.8rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     line-height: 130%;
     letter-spacing: -1.5%;
     background-color: rgba(56, 230, 3, 0.579);
@@ -130,7 +134,7 @@
     font-family: 'Inter';
     font-weight: 600;
     font-style: Bold;
-    font-size: 13px;
+    font-size: 0.8rem;
     line-height: 130%;
     letter-spacing: -1.5%;
     background-color: rgba(250, 255, 206, 1);
