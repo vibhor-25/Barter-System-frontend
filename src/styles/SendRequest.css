@@ -1,15 +1,55 @@
 .popup-box {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    z-index: 1001;
-    width: 80vw;
-    height: 53.7vw;
-    padding: 20px;
-    gap: 26px;
-    border-radius: 35px;
-    background: var(--accent-v-light-blue, #EDF4FF);
+    display: grid;
+    grid-template-rows: 33fr 532fr 57fr;
+        font-size: 1.5rem;
+
+
+}
+
+.close {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.next {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: scroll;
+}
+
+.items .search {
+    display: flex;
+width: 560px;
+padding: 10px;
+align-items: center;
+gap: 10px;
+border-radius: 28px;
+background: var(--buttons-light-blue, #D7E7FF);
+}
+
+.search input:focus {
+    border: none;
+    outline: none;
+}
+.next button {
+    display: flex;
+    padding: 5px 32px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 13px;
+    background: var(--heart-color, #FF4C4C);
+    color: white;
+}
+
+.next button:hover {
+    background: var(--heart-color, #e04343);
+    cursor: pointer;
 }

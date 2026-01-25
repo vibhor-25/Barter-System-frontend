@@ -2,6 +2,7 @@ import {useNavigate} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 function SignUp() {
     const navigate = useNavigate();
+    
     const handleDivClick = () => {
     navigate('/home');
   };

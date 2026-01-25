@@ -4,13 +4,20 @@ import { X} from 'lucide-react'
 
 import { tintContext } from '../App';
 
-const AddItem = ({ShowAddItem, setShowAddItem}) => {
+const ProductInfo = ({product, ShowProductInfo, setShowProductInfo}) => {
+
+
+
+
+    // HI ARJUN, USE THE PRODUCT PROP TO SHOW DETAILS OF THE PRODUCT IN THE POPUP
+
+
+
     const { bgTint, setBgTint } = React.useContext(tintContext);
     
     const handleClose = () => {
         setBgTint(false);
-        setShowAddItem(false);
-        
+        setShowProductInfo(false);
     }
 
     useEffect(() => {
@@ -18,21 +25,24 @@ const AddItem = ({ShowAddItem, setShowAddItem}) => {
 
         const handleDocClick = (e) => {
             const tint = document.getElementById('tint');
-            if (ShowAddItem && tint && tint.contains(e.target)) {
-                console.log('Clicked outside 1');
+            if (ShowProductInfo && tint && tint.contains(e.target)) {
+                console.log('Clicked outside');
                 handleClose();
             }
         }
 
         document.addEventListener('click', handleDocClick)
         return () => document.removeEventListener('click', handleDocClick)
-    }, [ShowAddItem])
+    }, [ShowProductInfo])
 
   return (
-    <div className={`popup-box ${ShowAddItem ? '' : 'hidden'}`}>
+    <div className={`popup-box ${ShowProductInfo ? '' : 'hidden'}`}>
         <X size={30} className='close-icon absolute right-5 top-5 hover:cursor-pointer stroke-black bg-gray-300 rounded'  onClick={handleClose}/>
+        <p>{product.title}</p>
+        <p>{product.desc}</p>
+        
     </div>
   )
 }
 
-export default AddItem
+export default ProductInfo

@@ -23,7 +23,7 @@ const Items = () => {
                 <span className='font-Inter font-semibold text-2xl'>Add Item</span>
               </button>
             </div>
-            <Cards products={MyItems} selectedLoc={'All Locations'} showDistance={false} />
+            <Cards showMakeOffer={false} products={MyItems} selectedLoc={'All Locations'} showDistance={false} />
           </div>
         </div>
 

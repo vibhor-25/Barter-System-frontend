@@ -7,8 +7,12 @@ import { useState } from 'react';
 import Products from '../../public/data/data';
 import { Link } from 'react-router-dom';
 import SendRequest from '../components/SendRequest';
+import ProductInfo from '../components/ProductInfo';
 
 const Homepage = () => {
+
+      const [ShowProductInfo, setShowProductInfo] = useState(false) // !!!! TEMPORARILY SET TO TRUE (baame product detail wale page pe send request button se control hoga !)
+const[CurrentProduct, setCurrentProduct] = useState({})
   const [selectedLoc, setSelectedLoc] = useState('All Locations');
     const [ShowSendRequest, setShowSendRequest] = useState(true) // !!!! TEMPORARILY SET TO TRUE (baame product detail wale page pe send request button se control hoga !)
     const[isFilterOpen, setIsFilterOpen] = useState(0)
@@ -18,8 +22,9 @@ const Homepage = () => {
       <Navbar />
       <SearchBar selectedLoc={selectedLoc} setSelectedLoc={setSelectedLoc} onFilterClick={() => setIsFilterOpen(true)}/>
         <Filter isOpen={isFilterOpen} onClose={() => setIsFilterOpen(false)}/>
-      <Cards products={Products} selectedLoc={selectedLoc} />
+      <Cards setShowProductInfo={setShowProductInfo} CurrentProduct={CurrentProduct} setCurrentProduct={setCurrentProduct} products={Products} selectedLoc={selectedLoc} />
       {ShowSendRequest && <SendRequest ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest} />}
+           {ShowProductInfo && <ProductInfo product={CurrentProduct} ShowProductInfo={ShowProductInfo} setShowProductInfo={setShowProductInfo} />}
     </>
   )
 }

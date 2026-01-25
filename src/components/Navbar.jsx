@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav className='flex justify-between items-center h-22 px-2.5 bg-[#BEBEBE5E] shadow-[0_4px_13.7px_rgba(0,0,0,0.25)] backdrop-blur-[4px]'> 
+    <nav className='flex sticky top-0 z-100 justify-between items-center h-22 px-2.5 bg-[#BEBEBE5E] shadow-[0_4px_13.7px_rgba(0,0,0,0.25)] backdrop-blur-[4px]'> 
         <img src='public/images/BarterLogo.png' alt='Barter Logo' className='h-14 px-5'/>
         <ul className='flex items-center gap-6 '>
             <li>
