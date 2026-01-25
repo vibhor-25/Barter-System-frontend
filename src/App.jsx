@@ -1,6 +1,6 @@
 import React from 'react'
 import './index.css';
-import './normal.css';
+import './styles/normal.css';
 import { BrowserRouter, Routes, Route ,Link } from 'react-router-dom'
 import Homepage from './Pages/Homepage'
 import Wishlist from './Pages/Wishlist'

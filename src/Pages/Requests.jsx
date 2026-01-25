@@ -3,7 +3,7 @@ import Menu from '../components/Menu'
 import ReqCard from '../components/ReqCard';
 import sentRequests from '../../public/data/reqsent';
 import RequestRecieve from './RequestRecieve';
-import '../../src/request.css';
+import '../styles/request.css';
 const Requests = () => {
   const [activeTab, setActiveTab] = useState(0);
   return (

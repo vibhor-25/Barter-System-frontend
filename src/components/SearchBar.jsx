@@ -1,6 +1,7 @@
 import React from 'react'
-import { Search , MapPin , Funnel , Plus } from 'lucide-react';
+import { Search  , Funnel , Plus } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import LocationMenu from './LocationMenu';
 const SearchBar = () => {
   return (
     <div className='w-full'>
@@ -16,10 +17,11 @@ const SearchBar = () => {
           <Search className='ml-2' size={20} />
           <input type="text" placeholder="Search Something..." className='font-Inter py-2 px-3 sm:px-5 border-none font-semibold text-black rounded-full w-full sm:w-64 ' />
         </div>
-        <div id='filters' className='flex justify-center bg-[#caf1fd] border-blue-800 border items-center font-Inter rounded-4xl gap-2 w-full lg:w-auto'>
+        {/* <div id='filters' className='flex justify-center bg-[#caf1fd] border-blue-800 border items-center font-Inter rounded-4xl gap-2 w-full lg:w-auto'>
           <MapPin className='ml-2' size={20} />
           <input type="text" placeholder="Location" className='font-Inter py-2 px-3 sm:px-5 border-none font-semibold text-black rounded-full w-full sm:w-40' />
-        </div>
+        </div> */}
+        <LocationMenu />
         <button className='hover:cursor-pointer bg-[#caf1fd] h-10 w-10 rounded-4xl border-blue-800 border px-2 flex items-center justify-center flex-0'>
           <Funnel size={20} />
         </button>
