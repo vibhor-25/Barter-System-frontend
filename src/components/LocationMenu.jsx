@@ -4,18 +4,20 @@ import data from '../../public/data/data';
 import '../styles/LocationMenu.css';
 
 
-const LocationMenu = ({selectedLoc, setSelectedLoc}) => {
+const LocationMenu = ({ selectedLoc, setSelectedLoc }) => {
 
     const [locMenuHidden, setLocMenuHidden] = useState(true);
 
     const handleCurrentLocation = () => {
 
         //api to get current location from ip
+        setSelectedLoc('Loading...');
         fetch("https://ipapi.co/json/")
             .catch(() => {
                 fetch("https://ipapi.co/json/")
-            .then(res => res.json())
-            .then(data => setSelectedLoc(data.city));
+                    .catch(() => setSelectedLoc('Location Unavailable'))
+                    .then(res => res.json())
+                    .then(data => setSelectedLoc(data.city));
             })
             .then(res => res.json())
             .then(data => setSelectedLoc(data.city));
@@ -56,7 +58,7 @@ const LocationMenu = ({selectedLoc, setSelectedLoc}) => {
                 </div>
                 <div className="dropdown-item" onClick={() => setSelectedLoc('All Locations')}>
                     All Locations
-                    </div>
+                </div>
                 {cities.map((city, index) => (
                     <div key={index} className="dropdown-item" onClick={() => setSelectedLoc(city)}>
                         {city}
