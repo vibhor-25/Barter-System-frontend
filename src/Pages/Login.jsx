@@ -5,7 +5,7 @@ function Login() {
     const navigate = useNavigate();
   const handleDivClick = () => {
     navigate('/home');
-  };
+  }
     return(
         <>
         <img className='background' src='../../public/images/backgroundimg.png' alt=''/>

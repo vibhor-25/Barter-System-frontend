@@ -3,7 +3,7 @@ import { ChevronUp } from 'lucide-react';
 const Filter = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
     return(
-        <div className="fixed inset-0 z-50" onClick={onClose}>
+        <div className="fixed inset-0 z-50 bg-black/30" onClick={onClose}>
       <div 
         className="absolute top-[30%] right-[10%] w-[320px] bg-[#A2B9F0] p-6 rounded-[40px] shadow-2xl flex flex-col gap-4"
         onClick={(e) => e.stopPropagation()}
