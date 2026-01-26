@@ -8,13 +8,14 @@ import Products from '../../public/data/data';
 import { Link } from 'react-router-dom';
 import SendRequest from '../components/SendRequest';
 import ProductInfo from '../components/ProductInfo';
+import Calendar from 'react-calendar'
 
 const Homepage = () => {
 
       const [ShowProductInfo, setShowProductInfo] = useState(false) // !!!! TEMPORARILY SET TO TRUE (baame product detail wale page pe send request button se control hoga !)
 const[CurrentProduct, setCurrentProduct] = useState({})
   const [selectedLoc, setSelectedLoc] = useState('All Locations');
-    const [ShowSendRequest, setShowSendRequest] = useState(true) // !!!! TEMPORARILY SET TO TRUE (baame product detail wale page pe send request button se control hoga !)
+    const [ShowSendRequest, setShowSendRequest] = useState(false) // !!!! TEMPORARILY SET TO TRUE (baame product detail wale page pe send request button se control hoga !)
     const[isFilterOpen, setIsFilterOpen] = useState(0)
   return (
     <>
@@ -23,8 +24,8 @@ const[CurrentProduct, setCurrentProduct] = useState({})
       <SearchBar selectedLoc={selectedLoc} setSelectedLoc={setSelectedLoc} onFilterClick={() => setIsFilterOpen(true)}/>
         <Filter isOpen={isFilterOpen} onClose={() => setIsFilterOpen(false)}/>
       <Cards setShowProductInfo={setShowProductInfo} CurrentProduct={CurrentProduct} setCurrentProduct={setCurrentProduct} products={Products} selectedLoc={selectedLoc} />
-      {ShowSendRequest && <SendRequest ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest} />}
-           {ShowProductInfo && <ProductInfo product={CurrentProduct} ShowProductInfo={ShowProductInfo} setShowProductInfo={setShowProductInfo} />}
+           {ShowProductInfo && <ProductInfo product={CurrentProduct} ShowProductInfo={ShowProductInfo} setShowProductInfo={setShowProductInfo} ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest} />}   
+           {ShowSendRequest && <SendRequest ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest} />}
     </>
   )
 }
