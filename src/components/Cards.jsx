@@ -14,7 +14,7 @@ const Cards = ({ products, selectedLoc,showMakeOffer=true, showDistance = true, 
 
     return (
         <>
-            <div className='flex justify-center gap-7 flex-wrap my-5 p-5 mx-15 rounded-lg shadow-lg'>
+            <div className='flex justify-evenly gap-7  flex-wrap my-5 px-5 rounded-lg '>
                 {products.map((product) => (
                     (selectedLoc === 'All Locations' || product.loc.city === selectedLoc) && (
                         <div key={product.id}
