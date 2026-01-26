@@ -3,19 +3,12 @@ import '../styles/popup.css'
 import { X} from 'lucide-react'
 import { MapPin } from 'lucide-react';
 import { Heart } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 import { tintContext } from '../App';
 
-const ProductInfo = ({product, ShowProductInfo, setShowProductInfo}) => {
-    const navigate = useNavigate();
+const ProductInfo = ({product, ShowProductInfo, setShowProductInfo, ShowSendRequest, setShowSendRequest }) => {
     
-    const handleDivClick = () => {
-    navigate('/home');
-  };
 
     // HI ARJUN, USE THE PRODUCT PROP TO SHOW DETAILS OF THE PRODUCT IN THE POPUP
-
-
 
     const { bgTint, setBgTint } = React.useContext(tintContext);
     
@@ -81,9 +74,10 @@ const ProductInfo = ({product, ShowProductInfo, setShowProductInfo}) => {
                 <span>Tags:</span>
 
             </div>
-            <button onClick={handleDivClick} className='w-full bg-[rgba(41,71,216,1)] rounded-lg text-xl p-2 text-white font-Inter font-semibold cursor-pointer'>Request swap</button>
-            <button onClick={handleDivClick} className='w-full flex items-center justify-center bg-white rounded-lg text-xl p-2 text-black font-Inter font-semibold cursor-pointer border-2 mt-6'><Heart size={30} className="text-black pr-2 text-bold" />Add to Wishlist</button>
+            <button onClick={() => setShowSendRequest(true)} className='w-full bg-[rgba(41,71,216,1)] rounded-lg text-xl p-2 text-white font-Inter font-semibold cursor-pointer'>Request swap</button>
+            <button  className='w-full flex items-center justify-center bg-white rounded-lg text-xl p-2 text-black font-Inter font-semibold cursor-pointer border-2 mt-6'><Heart size={30} className="text-black pr-2 text-bold" />Add to Wishlist</button>
         </div> 
+        
     </div>
   )
 }
