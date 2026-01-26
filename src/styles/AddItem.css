@@ -1,0 +1,169 @@
+/* Styles for AddItem modal (matches Figma layout) */
+.additem-root {
+	/* popup-box already supplies size/background */
+	padding: 28px;
+}
+
+.additem-container {
+	display: flex;
+	gap: 26px;
+	align-items: flex-start;
+}
+
+.ai-left {
+	width: 455px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.thumbnail {
+	background: rgba(190,190,190,0.37);
+	border-radius: 12px;
+	padding: 48px 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+}
+
+.plus-wrap {
+	border: 4px solid rgba(0,0,0,0.55);
+	padding: 10px;
+	border-radius: 7px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.plus-wrap img { width: 48px; height: 48px; object-fit: contain; }
+
+.thumb-text {
+	font-family: Inter, sans-serif;
+	font-weight: 600;
+	font-size: 20px;
+	color: rgba(0,0,0,0.55);
+}
+
+.other-images {
+	display: flex;
+	gap: 20px;
+	width: 372px;
+	align-items: center;
+}
+
+.img-box {
+	background: rgba(190,190,190,0.37);
+	border-radius: 12px;
+	width: 82px;
+	height: 100px;
+	flex: 0 0 auto;
+}
+
+.img-box.add-small { display:flex; align-items:center; justify-content:center; }
+.img-box.add-small img { width: 28px; height: 28px; }
+
+.ai-right {
+	flex: 1 1 0;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	align-items: flex-end;
+}
+
+.close-btn {
+	position: absolute;
+	right: 36px;
+	top: 36px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.ai-close-icon img { width: 28px; height: 28px; }
+
+.ai-title {
+	align-self: stretch;
+	font-family: Inter, sans-serif;
+	font-weight: 600;
+	font-size: 32px;
+	color: #000;
+	margin: 8px 0;
+}
+
+.ai-desc {
+	align-self: stretch;
+	font-family: Inter, sans-serif;
+	font-size: 18px;
+	color: #000;
+	margin-bottom: 10px;
+}
+
+.ai-subheading {
+	align-self: stretch;
+	font-family: Inter, sans-serif;
+	font-weight: 600;
+	font-size: 24px;
+	color: #05191D;
+	margin-top: 6px;
+}
+
+.address-btn {
+	width: 100%;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	padding: 10px 14px;
+	border-radius: 12px;
+	background: rgba(255,255,255,0.55);
+	border: none;
+	margin-top: 8px;
+	cursor: pointer;
+}
+
+.address-btn .radio {
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: rgba(76,76,76,0.2);
+	display: inline-block;
+}
+
+.address-btn .label { font-size: 18px; color: #05191D; }
+
+.used-new { display:flex; gap:10px; align-items:center; margin-top:12px; }
+.used-pill, .new-pill {
+	padding: 3px 10px;
+	border-radius: 8px;
+	font-size: 13px;
+}
+.used-pill { background: #8FADEA; box-shadow: 0 4px 4px rgba(0,0,0,0.25); }
+.used-pill.active { font-weight:600; }
+.new-pill { background: transparent; border: none; cursor: pointer; }
+
+.tags-section { align-self: stretch; margin-top: 12px; }
+.tags-section h4 { font-size: 24px; font-weight:600; margin: 0 0 10px 0; }
+.tags-row { display:flex; gap:12px; align-items:center; }
+.tag { background: #2c2c2c; color: #fff; padding:8px; border-radius:8px; display:flex; gap:8px; align-items:center; }
+.tag img { width:16px; height:16px; }
+.tag.add-tag { background: transparent; border: 1.5px solid rgba(0,0,0,0.55); padding:6px; }
+.tag.add-tag img { width:20px; height:20px; }
+
+.actions { align-self: stretch; margin-top: 20px; }
+.add-item-btn {
+	width: 100%;
+	background: #ff4c4c;
+	color: #fff;
+	padding: 10px;
+	border-radius: 13px;
+	display:flex;
+	gap:10px;
+	align-items:center;
+	justify-content:center;
+	border: none;
+	font-size: 24px;
+	font-weight: 600;
+	cursor: pointer;
+}
+.add-item-btn img { width:24px; height:24px; }
+
