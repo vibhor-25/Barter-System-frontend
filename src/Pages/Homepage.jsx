@@ -8,6 +8,7 @@ import Products from '../../public/data/data';
 import { Link } from 'react-router-dom';
 import SendRequest from '../components/SendRequest';
 import ProductInfo from '../components/ProductInfo';
+import Calendar from 'react-calendar'
 
 const Homepage = () => {
 
@@ -24,7 +25,7 @@ const[CurrentProduct, setCurrentProduct] = useState({})
         <Filter isOpen={isFilterOpen} onClose={() => setIsFilterOpen(false)}/>
       <Cards setShowProductInfo={setShowProductInfo} CurrentProduct={CurrentProduct} setCurrentProduct={setCurrentProduct} products={Products} selectedLoc={selectedLoc} />
       {ShowSendRequest && <SendRequest ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest} />}
-           {ShowProductInfo && <ProductInfo product={CurrentProduct} ShowProductInfo={ShowProductInfo} setShowProductInfo={setShowProductInfo} />}
+           {ShowProductInfo && <ProductInfo product={CurrentProduct} ShowProductInfo={ShowProductInfo} setShowProductInfo={setShowProductInfo} />}   
     </>
   )
 }
