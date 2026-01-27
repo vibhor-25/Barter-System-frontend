@@ -10,6 +10,7 @@ import Settings from './Pages/Settings'
 import Items from './Pages/Items'
 import Login from './Pages/Login'
 import SignUp from './Pages/SignUp'
+// import ProtectedLayout from './components/ProtectedLayout';
 
 export const tintContext = React.createContext();
 const App = () => {
@@ -22,12 +23,14 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/signup' element={<SignUp />} />
+          {/* <Route element={<ProtectedLayout />}> */}
           <Route path='/home' element={<Homepage />} />
           <Route path='/wishlist' element={<Wishlist />} />
           <Route path='/requests' element={<Requests />} />
           <Route path='/items' element={<Items />} />
           <Route path='/myprofile' element={<MyProfile />} />
           <Route path='/settings' element={<Settings />} />
+          {/* </Route> */}
         </Routes>
         {bgTint && <div className="tint" id='tint'></div>}
       </tintContext.Provider>

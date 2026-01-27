@@ -9,7 +9,7 @@ import SendReqCards from './SendReqCards';
 
 import { tintContext } from '../App';
 
-const SendRequest = ({ShowSendRequest, setShowSendRequest}) => {
+const SendRequest = ({ShowSendRequest, setShowSendRequest, ShowCalendar, setShowCalendar}) => {
     const { bgTint, setBgTint } = React.useContext(tintContext);
     const [searchVal, setSearchVal] = useState('')
     const [Selected, setSelected] = useState({})
@@ -58,7 +58,10 @@ const SendRequest = ({ShowSendRequest, setShowSendRequest}) => {
     
         </div>
         <div className="next">
-            <button>Next</button>
+            <button 
+            onClick={(e) => 
+                {e.stopPropagation();
+                setShowCalendar(true);}}>Next</button>
         </div>
     </div>
   )
