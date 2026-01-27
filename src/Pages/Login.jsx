@@ -23,7 +23,7 @@ function Login() {
 
                 <div className='passworddiv'>
                     <h1 className='passwordtext'>Password</h1>
-                    <input className='inputbox' placeholder='eg. abc'></input>
+                    <input className='inputbox' type='password' placeholder='eg. abc'></input>
                 </div>
 
                 <div className='forgotdiv'>
