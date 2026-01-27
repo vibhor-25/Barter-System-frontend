@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { ChevronUp } from 'lucide-react';
-const Filter = ({ isOpen, onClose }) => {
+import Products from "../../public/data/data";
+const Filter = ({ isOpen, onClose, Products }) => {
     if (!isOpen) return null;
     return(
-        <div className="fixed inset-0 z-50" onClick={onClose}>
+        <div className="fixed inset-0 z-50 bg-black/30" onClick={onClose}>
       <div 
         className="absolute top-[30%] right-[10%] w-[320px] bg-[#A2B9F0] p-6 rounded-[40px] shadow-2xl flex flex-col gap-4"
         onClick={(e) => e.stopPropagation()}
@@ -15,7 +16,7 @@ const Filter = ({ isOpen, onClose }) => {
         <div>
           <h3 className="font-semibold mb-2">Categories</h3>
           <div className="flex flex-wrap gap-2">
-            {['electronics', 'toys', 'sports', 'kitchen', 'laptop', 'mobiles', 'vintage', 'rare', 'watch', 'random'].map((cat) => (
+            {['electronics', 'toys', 'sports', 'kitchen', 'laptop', 'mobiles', 'vintage', 'rare', 'watch', 'other'].map((cat) => (
               <span key={cat} className="bg-white px-3 py-1 rounded-xl text-sm font-medium text-gray-600 cursor-pointer hover:bg-gray-50">
                 {cat}
               </span>
