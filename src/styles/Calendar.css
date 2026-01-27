@@ -3,6 +3,7 @@
   border: none !important;
   width: 100% !important;
   font-family: 'Inter', sans-serif;
+  z-index: 200;
 }
 
 .custom-calendar .react-calendar__navigation {

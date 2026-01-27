@@ -17,7 +17,7 @@ const Homepage = () => {
       const [selectedLoc, setSelectedLoc] = useState('All Locations');
       const [ShowSendRequest, setShowSendRequest] = useState(false) // !!!! TEMPORARILY SET TO TRUE (baame product detail wale page pe send request button se control hoga !)
       const[isFilterOpen, setIsFilterOpen] = useState(0)
-      const[ShowCalendar, setShowCalendar] = useState(0);
+      const[ShowCalendar, setShowCalendar] = useState(false);
 
   return (
     <>
@@ -28,6 +28,7 @@ const Homepage = () => {
       <Cards setShowProductInfo={setShowProductInfo} CurrentProduct={CurrentProduct} setCurrentProduct={setCurrentProduct} products={Products} selectedLoc={selectedLoc} />
            {ShowProductInfo && <ProductInfo product={CurrentProduct} ShowProductInfo={ShowProductInfo} setShowProductInfo={setShowProductInfo} ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest}/>}   
            {ShowSendRequest && <SendRequest ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest} ShowCalendar={ShowCalendar} setShowCalendar={setShowCalendar} />}
+           {ShowCalendar && <MyCalendar ShowCalendar={ShowCalendar} setShowCalendar={setShowCalendar} />}
     </>
   )
 }

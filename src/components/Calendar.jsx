@@ -8,7 +8,7 @@ const MyCalendar = () => {
 
 
   return (
-    <div className="p-6 bg-white rounded-[32px] shadow-sm max-w-sm">
+    <div className="p-6 bg-white rounded-[32px] shadow-sm max-w-sm position-fixed">
       <h2 className="text-xl font-bold mb-4 text-gray-800">Select Pick Up:</h2>
       
       <Calendar 
