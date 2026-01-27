@@ -1,6 +1,5 @@
 import {data, Link} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
-<<<<<<< HEAD
 import {useState} from 'react';
 import axios from 'axios';
 
@@ -32,8 +31,7 @@ async function login_request(data){
       }
     });
 }
-=======
->>>>>>> 207ed615adc078379adae6c605e5d7af0bb14b40
+
 
 function Login() {
     const [loginData, setLoginData] = useState({
@@ -42,17 +40,9 @@ function Login() {
     })
 
     const navigate = useNavigate();
-<<<<<<< HEAD
-    const handleDivClick = async () => {
-        const login_success = login_request(loginData);
-
-        if(login_success) navigate('/home');
-    };
-=======
   const handleDivClick = () => {
     navigate('/home');
   }
->>>>>>> 207ed615adc078379adae6c605e5d7af0bb14b40
     return(
         <>
         <img className='background' src='../../public/images/backgroundimg.png' alt=''/>
