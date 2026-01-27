@@ -10,20 +10,6 @@ import AddItem from '../components/AddItem';
 
 const Items = () => {
     const [ShowAddItem, setShowAddItem] = useState(false)
-    
-    async function getItems(){
-        const response = await axios.get("http://localhost:8000/api/auth/user/items/", {
-            withCredentials: true,
-        });
-    
-        console.log(response.data);
-    
-    }
-
-    useEffect(() => {
-        getItems();
-    })
-
 return (
     <div>
         <img src = 'public/images/MenuBg.png' alt='Background Image' className='fixed top-0 left-0 w-full h-full -z-10 object-cover'/>
