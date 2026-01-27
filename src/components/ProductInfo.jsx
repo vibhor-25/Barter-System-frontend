@@ -58,10 +58,12 @@ const ProductInfo = ({product, ShowProductInfo, setShowProductInfo, ShowSendRequ
         <div className='flex-1 flex flex-col '>
             <p className='font-Inter font-semibold text-4xl pt-7 '>{product.title }</p>
             <p className='font-Inter font-regular text-xl pt-2 pb-40'>{product.desc}</p>
-            <div className='flex flex-row justify-end'>
-                <div></div>
+            <div className='flex flex-row justify-end gap-2'>
+                <div className='text-[15px] font-semibold px-2 rounded-sm bg-[#000000] text-white'>
+                    <p>{product.price} rs</p>
+                </div>
                 <div className={`text-[15px] font-semibold ${product.statusi ? 'bg-[#C2D1FF] text-[#001D6E]' : 'bg-[#D1FFC2] text-[#1C3700]'} px-2 rounded-sm`}>
-                {product.statusi ? "Used" : "New"}
+                    {product.statusi ? "Used" : "New"}
                 </div>
             </div>
             <h1 className='font-semibold font-Inter text-xl'>Seller info:</h1>
@@ -71,8 +73,8 @@ const ProductInfo = ({product, ShowProductInfo, setShowProductInfo, ShowSendRequ
 
             </div>
             <div className='flex flex-row'>
-            <MapPin size={30} className="text-black rounded-l-lg bg-[rgba(255,177,143,1)]  " />
-            <p className=' font-regular rounded-r-lg bg-[rgba(255,177,143,1)] text-xl px-2'></p>
+                <MapPin size={30} className="text-black rounded-l-lg bg-[rgba(255,177,143,1)]  " />
+                <p className=' font-regular rounded-r-lg bg-[rgba(255,177,143,1)] text-xl px-2'></p>
             </div>
             <div>
                 <span>Tags:</span>
