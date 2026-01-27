@@ -1,9 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Menu from '../components/Menu'
 import { SquarePen, UserRound } from 'lucide-react';
+import axios from "axios";
+
 
 const MyProfile = () => {
-  return (
+    useEffect(() => {
+        async function getDetails(){
+            console.log('reached funct');
+            // const api = axios.create({
+            //   baseURL: "http://localhost:8000/api/auth/user/",
+            //   withCredentials: true,
+            // });
+
+            // api.get("me/");
+
+            const response = await axios.get(
+                "http://localhost:8000/api/auth/user/me/",
+                { withCredentials: true },
+            );
+
+            console.log(response.data);
+        }
+        getDetails();
+    }, []);
+  
+    return (
     <div>
         <img src = 'public/images/MenuBg.png' alt='Background Image' className='fixed top-0 left-0 w-full h-full -z-10 object-cover'/>
         <div className='flex'>
