@@ -5,12 +5,11 @@ import { X } from 'lucide-react'
 
 import { tintContext } from '../App'
 
-const IMG_PLUS = 'https://www.figma.com/api/mcp/asset/ac66318e-31ce-4683-8197-41cefb7a1b4a'
-const IMG_PLUS_MED = 'https://www.figma.com/api/mcp/asset/a6871577-5ef4-455d-943b-69f07ba05d65'
-const IMG_PLUS_SM = 'https://www.figma.com/api/mcp/asset/db64acbd-d32c-47b7-aa89-4b555d69fe23'
-const IMG_CLOSE = 'https://www.figma.com/api/mcp/asset/2366f906-ecae-4592-a8d9-aae8619de8c7'
-const IMG_TAG_X = 'https://www.figma.com/api/mcp/asset/3f7ecf60-d24b-4dba-b114-6d02ee2bbce9'
-const IMG_ADD_ICON = 'https://www.figma.com/api/mcp/asset/9a29e584-ba9c-4037-8c73-36d3b61b9e86'
+const IMG_PLUS = '../../public/images/IMG_PLUS.svg'
+const IMG_PLUS_MED = '../../public/images/IMG_PLUS_MED.svg'
+const IMG_PLUS_SM = '../../public/images/IMG_PLUS_SM.svg'
+const IMG_TAG_X = '../../public/images/IMG_TAG_X.svg'
+const IMG_ADD_ICON = '../../public/images/IMG_ADD_ICON.svg'
 
 const AddItem = ({ ShowAddItem, setShowAddItem }) => {
     const { bgTint, setBgTint } = React.useContext(tintContext)
@@ -61,9 +60,7 @@ const AddItem = ({ ShowAddItem, setShowAddItem }) => {
                 </div>
 
                 <div className="ai-right">
-                    <div className="ai-close-icon">
-                        <img src={IMG_CLOSE} alt="close icon" />
-                    </div>
+                
 
                     <h2 className="ai-title">Title</h2>
                     <p className="ai-desc">Description</p>
