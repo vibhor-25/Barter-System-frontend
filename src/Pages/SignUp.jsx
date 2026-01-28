@@ -68,7 +68,7 @@ function SignUp() {
               ></input>
               <input
                 className="inputbox2"
-                placeholder="last name"
+                placeholder="Last name"
                 value={formData.lastName}
                 onChange={(e) =>
                   setFormData({ ...formData, lastName: e.target.value })
@@ -93,7 +93,7 @@ function SignUp() {
             <h1 className="newpasswordtext">New Password</h1>
             <input
               className="inputbox"
-              type="passowrd"
+              type="password"
               placeholder="eg. abc"
               value={formData.password}
               onChange={(e) =>

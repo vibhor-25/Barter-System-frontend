@@ -23,7 +23,8 @@ async function login_request(data){
         data,
         { withCredentials: true, },
     ).then((rec_data) => {
-      // console.log(rec_data.data)
+      cookies = document.cookie;
+      console.log(cookies);
       if (rec_data.status === 200) {
         return true;
       } else {
@@ -42,6 +43,7 @@ function Login() {
     const navigate = useNavigate();
   const handleDivClick = () => {
     navigate('/home');
+    login_request(loginData);
   }
     return(
         <>
@@ -62,7 +64,7 @@ function Login() {
 
                 <div className='passworddiv'>
                     <h1 className='passwordtext'>Password</h1>
-                    <input className='inputbox' placeholder='eg. abc' value={loginData.password} onChange={(e) => {
+                    <input className='inputbox' type="password" placeholder='eg. abc' value={loginData.password} onChange={(e) => {
                         setLoginData({...loginData, password: e.target.value})
                     }}></input>
                 </div>
