@@ -54,11 +54,11 @@ const Cards = ({ products, selectedLoc,showMakeOffer=true, showDistance = true, 
                       className={`absolute bottom-1 right-1 bg-[#FFDBC5] text-[#442600] flex items-center gap-1 px-2 py-0.5 rounded-full ${showDistance ? "" : "hidden"}`}
                     >
                       <MapPin className="size-4" />
-                      {/* <span className="text-sm">
+                      <span className="text-sm">
                         {Math.floor(Math.random() * product.id) +
                           1 +
                           " km away"}
-                      </span> */}
+                      </span>
                     </div>
                   </div>
                   <h3 className="text-[#1C3700] font-Inter font-semibold  text-2xl pl-2 text-left">
@@ -69,7 +69,7 @@ const Cards = ({ products, selectedLoc,showMakeOffer=true, showDistance = true, 
                   </p>
                   <span
                     className={`mt-auto inline-flex items-center justify-center px-2 py-0.5 rounded-md text-[12px] font-medium tracking-tight ${product.statusi ? "bg-[#C2D1FF] text-[#001D6E]" : "bg-[#D1FFC2] text-[#1C3700]"}
-                       ${hoveredId === product.itemId ? "opacity-0" : "opacity-100"}`}
+                       ${hoveredId === product.id ? "opacity-0" : "opacity-100"}`}
                   >
                     {product.condition ? "Used" : "New"}
                   </span>
