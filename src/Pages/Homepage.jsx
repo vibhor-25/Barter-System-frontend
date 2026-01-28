@@ -19,14 +19,22 @@ const Homepage = () => {
       const[isFilterOpen, setIsFilterOpen] = useState(0)
       const[ShowCalendar, setShowCalendar] = useState(false);
       const [SearchVal, setSearchVal] = useState("");
+        const [SelectedFilter, setSelectedFilter] = useState([]);
+
+
+        const filteredProducts = Products.filter((product) => {
+          const matchesSearch = product.title.toLowerCase().includes(SearchVal.toLowerCase());
+          const matchesFilter = SelectedFilter.length === 0 || SelectedFilter.includes(product.category);
+          return matchesSearch && matchesFilter;
+        });
 
   return (
     <>
       <img src = 'public/images/Background.png' alt='Background Image' className='fixed top-0 left-0 w-full h-full -z-10 object-cover'/>
       <Navbar />
       <SearchBar SearchVal={SearchVal} setSearchVal={setSearchVal} selectedLoc={selectedLoc} setSelectedLoc={setSelectedLoc} onFilterClick={() => setIsFilterOpen(true)}/>
-        <Filter isOpen={isFilterOpen} onClose={() => setIsFilterOpen(false)}/>
-      <Cards setShowProductInfo={setShowProductInfo} CurrentProduct={CurrentProduct} setCurrentProduct={setCurrentProduct} products={Products.filter((product) => product.title.toLowerCase().includes(SearchVal.toLowerCase()))} selectedLoc={selectedLoc} />
+        <Filter isOpen={isFilterOpen} onClose={() => setIsFilterOpen(false)} SelectedFilter={SelectedFilter} setSelectedFilter={setSelectedFilter} />
+      <Cards setShowProductInfo={setShowProductInfo} CurrentProduct={CurrentProduct} setCurrentProduct={setCurrentProduct} products={filteredProducts} selectedLoc={selectedLoc} />
            {ShowProductInfo && <ProductInfo product={CurrentProduct} ShowProductInfo={ShowProductInfo} setShowProductInfo={setShowProductInfo} ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest}/>}   
            {ShowSendRequest && <SendRequest ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest} ShowCalendar={ShowCalendar} setShowCalendar={setShowCalendar} />}
            {ShowCalendar && <MyCalendar ShowCalendar={ShowCalendar} setShowCalendar={setShowCalendar} />}

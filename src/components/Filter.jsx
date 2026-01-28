@@ -1,7 +1,19 @@
 import { useState } from "react";
-import { ChevronUp } from 'lucide-react';
+import { ChevronUp, Check } from 'lucide-react';
 import Products from "../../public/data/data";
-const Filter = ({ isOpen, onClose, Products }) => {
+import filters from "../../public/data/filters";
+const Filter = ({ isOpen, onClose, SelectedFilter, setSelectedFilter }) => {
+
+
+    const handleFilterOnClick = (clickedFilter) => {
+     setSelectedFilter(prev =>
+  prev.includes(clickedFilter)
+    ? prev.filter(f => f !== clickedFilter)
+    : [...prev, clickedFilter]
+);
+ 
+    }
+
     if (!isOpen) return null;
     return(
         <div className="fixed inset-0 z-50 bg-black/30" onClick={onClose}>
@@ -16,10 +28,11 @@ const Filter = ({ isOpen, onClose, Products }) => {
         <div>
           <h3 className="font-semibold mb-2">Categories</h3>
           <div className="flex flex-wrap gap-2">
-            {['electronics', 'toys', 'sports', 'kitchen', 'laptop', 'mobiles', 'vintage', 'rare', 'watch', 'other'].map((cat) => (
-              <span key={cat} className="bg-white px-3 py-1 rounded-xl text-sm font-medium text-gray-600 cursor-pointer hover:bg-gray-50">
+            {filters.map((cat) => (
+              <div key={cat} onClick={() => handleFilterOnClick(cat)} className={`${SelectedFilter.includes(cat)  ? 'bg-black text-white' : 'bg-white texy-gray-600'} px-3 py-1 rounded-xl text-sm font-medium cursor-pointer `}>
+                {SelectedFilter.includes(cat) && <Check className="inline ml-2" />}
                 {cat}
-              </span>
+              </div>
             ))}
           </div>
         </div>
