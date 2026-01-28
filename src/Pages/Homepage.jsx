@@ -3,15 +3,31 @@ import Navbar from '../components/Navbar'
 import SearchBar from '../components/SearchBar'
 import Filter from '../components/Filter'
 import Cards from '../components/Cards'
-import { useState } from 'react';
-import Products from '../../public/data/data';
+import { useState , useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import SendRequest from '../components/SendRequest';
 import ProductInfo from '../components/ProductInfo';
 import MyCalendar from '../components/Calendar';
+import axios from 'axios';
 
 const Homepage = () => {
+    async function getItems(){
+        const response = await axios.get("http://localhost:8000/api/auth/barter/items/", {
+            withCredentials: true,
+        });
+    
+        
+        const item_list = response.data;
+        products = Object.values(response.data);
+        console.log(products);
+    
+    }
 
+    useEffect(() => {
+        getItems();
+      }, [])
+      
+      const [products, setProducts] = useState([])
       const [ShowProductInfo, setShowProductInfo] = useState(false) // !!!! TEMPORARILY SET TO TRUE (baame product detail wale page pe send request button se control hoga !)
       const[CurrentProduct, setCurrentProduct] = useState({})
       const [selectedLoc, setSelectedLoc] = useState('All Locations');
@@ -26,7 +42,7 @@ const Homepage = () => {
       <Navbar />
       <SearchBar SearchVal={SearchVal} setSearchVal={setSearchVal} selectedLoc={selectedLoc} setSelectedLoc={setSelectedLoc} onFilterClick={() => setIsFilterOpen(true)}/>
         <Filter isOpen={isFilterOpen} onClose={() => setIsFilterOpen(false)}/>
-      <Cards setShowProductInfo={setShowProductInfo} CurrentProduct={CurrentProduct} setCurrentProduct={setCurrentProduct} products={Products.filter((product) => product.title.toLowerCase().includes(SearchVal.toLowerCase()))} selectedLoc={selectedLoc} />
+      <Cards  setShowProductInfo={setShowProductInfo} CurrentProduct={CurrentProduct} setCurrentProduct={setCurrentProduct} products={products.filter((product) => product.title.toLowerCase().includes(SearchVal.toLowerCase()))} selectedLoc={selectedLoc} />
            {ShowProductInfo && <ProductInfo product={CurrentProduct} ShowProductInfo={ShowProductInfo} setShowProductInfo={setShowProductInfo} ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest}/>}   
            {ShowSendRequest && <SendRequest ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest} ShowCalendar={ShowCalendar} setShowCalendar={setShowCalendar} />}
            {ShowCalendar && <MyCalendar ShowCalendar={ShowCalendar} setShowCalendar={setShowCalendar} />}
