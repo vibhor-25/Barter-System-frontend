@@ -30,6 +30,7 @@ const App = () => {
           <Route path='/items' element={<Items />} />
           <Route path='/myprofile' element={<MyProfile />} />
           <Route path='/settings' element={<Settings />} />
+          <Route path='*' element={<div className='flex justify-center items-center h-screen text-2xl font-bold'>404 - Page Not Found<br/></div>} />
           {/* </Route> */}
         </Routes>
         {bgTint && <div className="tint" id='tint'></div>}

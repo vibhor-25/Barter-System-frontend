@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
-import { ChevronLeft , UserRound , Box , GitPullRequest , SlidersVertical, X , Logs} from 'lucide-react';
+import { ChevronLeft , UserRound , Box , GitPullRequest , SlidersVertical, X , Logs, Heart} from 'lucide-react';
 
 const Menu = () => {
 const current = window.location.pathname;
@@ -31,6 +31,7 @@ return (
                     <Link to="/myprofile" id='My-Profile' className={`hover:cursor-pointer font-Inter font-semibold transition-transform duration-200 text-2xl text-black px-2 py-1 block w-full ${activeClass('/myprofile')}`}><UserRound className='inline-block mr-2' />My Profile</Link>
                     <Link to="/items" id='My-Items' className={`hover:cursor-pointer font-Inter font-semibold transition-transform duration-200 text-2xl text-black px-2 py-1 block w-full ${activeClass('/items')}`}><Box className='inline-block mr-2' />My Items</Link>
                     <Link to="/requests" id='Requests' className={`hover:cursor-pointer font-Inter font-semibold transition-transform duration-200 text-2xl text-black px-2 py-1 block w-full ${activeClass('/requests')}`}><GitPullRequest className='inline-block mr-2' />Requests</Link>
+                    <Link to="/wishlist" id='Wishlist' className={`hover:cursor-pointer font-Inter font-semibold transition-transform duration-200 text-2xl text-black px-2 py-1 block w-full ${activeClass('/wishlist')}`}><Heart className='inline-block mr-2' />Wishlist</Link>
                     <Link to="/settings" id='Settings' className={`hover:cursor-pointer font-Inter font-semibold transition-transform duration-200 text-2xl text-black px-2 py-1 block w-full ${activeClass('/settings')}`}><SlidersVertical className='inline-block mr-2' />Settings</Link>
             </ul>
     </div>
