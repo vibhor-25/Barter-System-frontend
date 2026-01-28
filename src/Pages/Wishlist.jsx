@@ -4,25 +4,30 @@ import { ChevronLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState , useEffect} from 'react';
 import axios from 'axios';
+import Products from '../../public/data/data';
 
 const Wishlist = () => {
       async function getItems(){
           const response = await axios.get("http://localhost:8000/api/auth/barter/items/", {
               withCredentials: true,
+          }).catch(() => {
+
+            setProducts(DummyProducts);
+          }).then(() => {
+
+            
+            
+            const item_list = response.data;
+            setProducts(Object.values(response.data));
           });
-      
-          
-          const item_list = response.data;
-          products = Object.values(response.data);
-          console.log(products);
-      
+            
       }
   
       useEffect(() => {
           getItems();
         }, [])
         
-        const [products, setProducts] = useState([])
+        // const [Products, setProducts] = useState([])
   return (
     <div className='mx-10 my-10 p-5'>
     <img src = 'public/images/WishlistBg.png' alt='Background Image' className='fixed top-0 left-0 w-full h-full -z-10 object-cover'/>
