@@ -18,7 +18,7 @@ const Homepage = () => {
     
         
         const item_list = response.data;
-        products = Object.values(response.data);
+        Products = Object.values(response.data);
         console.log(products);
     
     }
@@ -27,7 +27,7 @@ const Homepage = () => {
         getItems();
       }, [])
       
-      const [products, setProducts] = useState([])
+      const [Products, setProducts] = useState([])
       const [ShowProductInfo, setShowProductInfo] = useState(false) // !!!! TEMPORARILY SET TO TRUE (baame product detail wale page pe send request button se control hoga !)
       const[CurrentProduct, setCurrentProduct] = useState({})
       const [selectedLoc, setSelectedLoc] = useState('All Locations');
