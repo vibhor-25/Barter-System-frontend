@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import { useState } from 'react';
 import { HeartPlus } from 'lucide-react';
 import { MapPin } from 'lucide-react';
+import ProductInfo from "./ProductInfo";
 import axios from "axios";
 
 
-const Cards = ({ products, selectedLoc,showMakeOffer=true, showDistance = true, setCurrentProduct, setShowProductInfo }) => {
+const Cards = ({ products, selectedLoc,showMakeOffer=true, showDistance = true, setCurrentProduct, setShowProductInfo, ShowSendRequest, setShowSendRequest, ShowProductInfo, ProductInfo, CurrentProduct }) => {
     
     async function getItems(){
         const response = await axios.get("http://localhost:8000/api/auth/barter/items/", {
@@ -82,8 +83,10 @@ const Cards = ({ products, selectedLoc,showMakeOffer=true, showDistance = true, 
                 </div>
               )
             ))}
+            
             {/* {ShowProductInfo && <ProductInfo product={product} ShowProductInfo={ShowProductInfo} setShowProductInfo={setShowProductInfo} />} */}
             </div>
+                       {/* {ShowProductInfo && <ProductInfo product={CurrentProduct} ShowProductInfo={ShowProductInfo} setShowProductInfo={setShowProductInfo} ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest}/>}    */}
       </>
     );
 }

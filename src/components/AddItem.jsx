@@ -43,7 +43,7 @@ const AddItem = ({ ShowAddItem, setShowAddItem }) => {
 
             <div className="additem-container">
                 <div className="ai-left">
-                    <div className="thumbnail">
+                    <div className="thumbnail ">
                         <div className="plus-wrap">
                             <img src={IMG_PLUS} alt="add" />
                         </div>
@@ -102,7 +102,7 @@ const AddItem = ({ ShowAddItem, setShowAddItem }) => {
                     <div className="actions">
                         <button className="add-item-btn">
                             <img src={IMG_ADD_ICON} alt="plus" />
-                            <span>Add Item</span>
+                            <span>Save</span>
                         </button>
                     </div>
                 </div>

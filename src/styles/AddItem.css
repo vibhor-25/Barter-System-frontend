@@ -12,6 +12,7 @@
 
 .ai-left {
 	width: 455px;
+    height: 455px;
 	display: flex;
 	flex-direction: column;
 	gap: 15px;

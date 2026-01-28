@@ -5,10 +5,8 @@ import Filter from '../components/Filter'
 import Cards from '../components/Cards'
 import { useState } from 'react';
 import Products from '../../public/data/data';
-import { Link } from 'react-router-dom';
 import SendRequest from '../components/SendRequest';
 import ProductInfo from '../components/ProductInfo';
-import MyCalendar from '../components/Calendar';
 
 const Homepage = () => {
 
@@ -34,7 +32,7 @@ const Homepage = () => {
       <Navbar />
       <SearchBar SearchVal={SearchVal} setSearchVal={setSearchVal} selectedLoc={selectedLoc} setSelectedLoc={setSelectedLoc} onFilterClick={() => setIsFilterOpen(true)}/>
         <Filter isOpen={isFilterOpen} onClose={() => setIsFilterOpen(false)} SelectedFilter={SelectedFilter} setSelectedFilter={setSelectedFilter} />
-      <Cards setShowProductInfo={setShowProductInfo} CurrentProduct={CurrentProduct} setCurrentProduct={setCurrentProduct} products={filteredProducts} selectedLoc={selectedLoc} />
+      <Cards ShowProductInfo={ShowProductInfo} setShowProductInfo={setShowProductInfo} CurrentProduct={CurrentProduct} setCurrentProduct={setCurrentProduct} products={filteredProducts} selectedLoc={selectedLoc} ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest}/>
            {ShowProductInfo && <ProductInfo product={CurrentProduct} ShowProductInfo={ShowProductInfo} setShowProductInfo={setShowProductInfo} ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest}/>}   
            {ShowSendRequest && <SendRequest setShowProductInfo={setShowProductInfo} ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest} ShowCalendar={ShowCalendar} setShowCalendar={setShowCalendar} />}
     </>
