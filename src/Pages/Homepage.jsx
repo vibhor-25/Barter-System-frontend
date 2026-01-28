@@ -3,13 +3,32 @@ import Navbar from '../components/Navbar'
 import SearchBar from '../components/SearchBar'
 import Filter from '../components/Filter'
 import Cards from '../components/Cards'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Products from '../../public/data/data';
+import { Link } from 'react-router-dom';
 import SendRequest from '../components/SendRequest';
 import ProductInfo from '../components/ProductInfo';
+import MyCalendar from '../components/Calendar';
+import axios from 'axios';
 
 const Homepage = () => {
+    async function getItems(){
+        const response = await axios.get("http://localhost:8000/api/auth/barter/items/", {
+            withCredentials: true,
+        });
+    
+        
+        const item_list = response.data;
+        Products = Object.values(response.data);
+        console.log(products);
+    
+    }
 
+    useEffect(() => {
+        getItems();
+      }, [])
+      
+      const [Products, setProducts] = useState([])
       const [ShowProductInfo, setShowProductInfo] = useState(false) // !!!! TEMPORARILY SET TO TRUE (baame product detail wale page pe send request button se control hoga !)
       const[CurrentProduct, setCurrentProduct] = useState({})
       const [selectedLoc, setSelectedLoc] = useState('All Locations');

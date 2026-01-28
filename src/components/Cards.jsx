@@ -8,24 +8,8 @@ import axios from "axios";
 
 const Cards = ({ products, selectedLoc,showMakeOffer=true, showDistance = true, setCurrentProduct, setShowProductInfo, ShowSendRequest, setShowSendRequest, ShowProductInfo, ProductInfo, CurrentProduct }) => {
     
-    async function getItems(){
-        const response = await axios.get("http://localhost:8000/api/auth/barter/items/", {
-            withCredentials: true,
-        });
-    
-        
-        const item_list = response.data;
-        products = Object.values(response.data);
-        console.log(products);
-    
-    }
-
-    useEffect(() => {
-        getItems();
-    }, [])
 
     const [hoveredId, setHoveredId] = useState(null);
-
     const handleOnClick = (product) => {
         setCurrentProduct(product)
         setShowProductInfo(true);

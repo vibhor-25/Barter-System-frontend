@@ -31,15 +31,7 @@ function SignUp() {
         },
         { withCredentials: true },
       );
-
-      if (response.status === 201 && response.data.access) {
-        localStorage.setItem("accessToken", response.data.access);
-        localStorage.setItem("refreshToken", response.data.refresh);
-
         navigate("/home");
-      } else {
-        alert("Signup failed");
-      }
     } catch (error) {
       console.error("Signup error:", error.response?.data);
     }
