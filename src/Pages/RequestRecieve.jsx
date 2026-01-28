@@ -15,6 +15,7 @@ const RequestRecieve = ({}) => {
 
         const itemsArray = Object.values(response.data);
         setReceivedRequests(itemsArray);
+        console.log(itemsArray)
     }
     getRequests();
   }, []);

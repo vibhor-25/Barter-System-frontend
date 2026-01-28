@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ArrowRight, MapPin, X } from 'lucide-react';
 import '../styles/ReqRecieveCard.css';
 import axios from "axios";
@@ -30,7 +30,7 @@ async function acceptItem(itemId){
         { withCredentials: true },
     );
 
-    console.log(response.data);
+    // console.log(response.data);
 }
 
 async function declineItem(itemId) {
@@ -40,14 +40,34 @@ async function declineItem(itemId) {
         { withCredentials: true },
     );
     
-    console.log(response.data);
+    // console.log(response.data);
 }
 
+
+
+
 const ReqRecieveCard = ({
-    sellerProduct = {},
+  sellerProduct = {},
 }) => {
+  useEffect(() => {
+    async function getSeller(itemId) {
+      const response = await axios.post(
+        `http://localhost:8000/api/auth/barter/buyer/${itemId}/`,
+        {},
+        { withCredentials: true },
+      );
+  
+      setBuyer(response.data);
+    
+      // console.log(response.data);
+    }
+    getSeller(sellerProduct.itemId);
+  }, [])
+  const [buyer, setBuyer] = useState({})
+  
 
   const onAccept = async () => {
+
     await acceptItem(sellerProduct.itemId);
   };
 
@@ -55,7 +75,6 @@ const ReqRecieveCard = ({
     await declineItem(sellerProduct.itemId);
   };
 
-  const seller = sellerProduct.seller || {};
 
   const placeholderImg =
     'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="90" height="160"%3E%3Crect fill="%23bebebe" width="90" height="160"/%3E%3C/svg%3E';
@@ -68,17 +87,17 @@ const ReqRecieveCard = ({
             <div className="images-section">
               <div className="main-image">
                 <img
-                  src={sellerProduct.img || placeholderImg}
+                  src={sellerProduct.images[0] || placeholderImg}
                   alt={sellerProduct.name || "Product"}
                   className=""
                 />
               </div>
 
               <div className="thumbnails-container">
-                {[...Array(5)].map((_, i) => (
+                {[...Array(sellerProduct.images.length)].map((_, i) => (
                   <div key={i} className="thumbnail-image">
                     <img
-                      src={sellerProduct.img || placeholderImg}
+                      src={sellerProduct.images[i] || placeholderImg}
                       alt={`Thumbnail ${i}`}
                     />
                   </div>
@@ -106,32 +125,34 @@ const ReqRecieveCard = ({
               </div>
 
               <div className="seller-info-section">
-                <h3 className="seller-info-title">Seller info:</h3>
+                <h3 className="seller-info-title">Buyer info:</h3>
 
                 <div className="seller-profile-container">
                   <div className="seller-profile-details">
                     <div className="seller-avatar">
                       <img
-                        src={seller.avatar || placeholderImg}
-                        alt={seller.name || "Seller"}
+                        src={buyer.img || placeholderImg}
+                        alt={buyer.first_name + buyer.last_name || "Seller"}
                       />
                     </div>
-                    <p className="seller-name">{seller.name || "Name"}</p>
+                    <p className="seller-name">
+                      {buyer.first_name + buyer.last_name || "Name"}
+                    </p>
                   </div>
 
-                  <div className="rating-stars">
+                  {/* <div className="rating-stars">
                     {[...Array(5)].map((_, i) => (
                       <div key={i} className="star-wrapper">
-                        <Star filled={i < (seller.rating || 4)} />
+                        <Star filled={i < (buyer.rating || 4)} />
                       </div>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="location-badge">
                   <MapPin className="location-icon" strokeWidth={1.5} />
                   <span className="location-text">
-                    {seller.location || "Location"}
+                    {buyer.address1 || "Location"}
                   </span>
                 </div>
               </div>

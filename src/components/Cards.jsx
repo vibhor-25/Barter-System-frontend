@@ -36,7 +36,7 @@ const Cards = ({ products, selectedLoc,showMakeOffer=true, showDistance = true, 
                 >
                   <div className="relative w-56 h-50">
                     <img
-                    //   src={product.img}
+                      src={product.images[0]}
                       alt={product.name}
                       className="w-full h-full object-cover rounded-2xl"
                     />
@@ -58,7 +58,7 @@ const Cards = ({ products, selectedLoc,showMakeOffer=true, showDistance = true, 
                     </div>
                   </div>
                   <h3 className="text-[#1C3700] font-Inter font-semibold  text-2xl pl-2 text-left">
-                    {product.name} Product Name here
+                    {product.name}
                   </h3>
                   <p className="text-[#1C3700] font-Inter font-normal text-0.5xl pl-2 pr-2 pb-4 flex-1">
                     {product.description}
