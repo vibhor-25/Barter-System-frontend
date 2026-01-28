@@ -8,8 +8,9 @@ import MyItems from '../../public/data/myitems';
 import SendReqCards from './SendReqCards';
 
 import { tintContext } from '../App';
+import MyCalendar from './Calendar'
 
-const SendRequest = ({ShowSendRequest, setShowSendRequest, ShowCalendar, setShowCalendar}) => {
+const SendRequest = ({ShowSendRequest, setShowSendRequest, ShowCalendar, setShowCalendar, setShowProductInfo}) => {
     const { bgTint, setBgTint } = React.useContext(tintContext);
     const [searchVal, setSearchVal] = useState('')
     const [Selected, setSelected] = useState({})
@@ -63,6 +64,7 @@ const SendRequest = ({ShowSendRequest, setShowSendRequest, ShowCalendar, setShow
                 {e.stopPropagation();
                 setShowCalendar(true);}}>Next</button>
         </div>
+        {ShowCalendar && <MyCalendar setBgTint={setBgTint} setShowProductInfo={setShowProductInfo} ShowCalendar={ShowCalendar} setShowCalendar={setShowCalendar} setShowSendRequest={setShowSendRequest}/>}
     </div>
   )
 }

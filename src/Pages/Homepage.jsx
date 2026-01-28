@@ -36,8 +36,7 @@ const Homepage = () => {
         <Filter isOpen={isFilterOpen} onClose={() => setIsFilterOpen(false)} SelectedFilter={SelectedFilter} setSelectedFilter={setSelectedFilter} />
       <Cards setShowProductInfo={setShowProductInfo} CurrentProduct={CurrentProduct} setCurrentProduct={setCurrentProduct} products={filteredProducts} selectedLoc={selectedLoc} />
            {ShowProductInfo && <ProductInfo product={CurrentProduct} ShowProductInfo={ShowProductInfo} setShowProductInfo={setShowProductInfo} ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest}/>}   
-           {ShowSendRequest && <SendRequest ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest} ShowCalendar={ShowCalendar} setShowCalendar={setShowCalendar} />}
-           {ShowCalendar && <MyCalendar ShowCalendar={ShowCalendar} setShowCalendar={setShowCalendar} />}
+           {ShowSendRequest && <SendRequest setShowProductInfo={setShowProductInfo} ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest} ShowCalendar={ShowCalendar} setShowCalendar={setShowCalendar} />}
     </>
   )
 }
