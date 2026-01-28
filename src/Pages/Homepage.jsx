@@ -18,14 +18,15 @@ const Homepage = () => {
       const [ShowSendRequest, setShowSendRequest] = useState(false) // !!!! TEMPORARILY SET TO TRUE (baame product detail wale page pe send request button se control hoga !)
       const[isFilterOpen, setIsFilterOpen] = useState(0)
       const[ShowCalendar, setShowCalendar] = useState(false);
+      const [SearchVal, setSearchVal] = useState("");
 
   return (
     <>
       <img src = 'public/images/Background.png' alt='Background Image' className='fixed top-0 left-0 w-full h-full -z-10 object-cover'/>
       <Navbar />
-      <SearchBar selectedLoc={selectedLoc} setSelectedLoc={setSelectedLoc} onFilterClick={() => setIsFilterOpen(true)}/>
+      <SearchBar SearchVal={SearchVal} setSearchVal={setSearchVal} selectedLoc={selectedLoc} setSelectedLoc={setSelectedLoc} onFilterClick={() => setIsFilterOpen(true)}/>
         <Filter isOpen={isFilterOpen} onClose={() => setIsFilterOpen(false)}/>
-      <Cards setShowProductInfo={setShowProductInfo} CurrentProduct={CurrentProduct} setCurrentProduct={setCurrentProduct} products={Products} selectedLoc={selectedLoc} />
+      <Cards setShowProductInfo={setShowProductInfo} CurrentProduct={CurrentProduct} setCurrentProduct={setCurrentProduct} products={Products.filter((product) => product.title.toLowerCase().includes(SearchVal.toLowerCase()))} selectedLoc={selectedLoc} />
            {ShowProductInfo && <ProductInfo product={CurrentProduct} ShowProductInfo={ShowProductInfo} setShowProductInfo={setShowProductInfo} ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest}/>}   
            {ShowSendRequest && <SendRequest ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest} ShowCalendar={ShowCalendar} setShowCalendar={setShowCalendar} />}
            {ShowCalendar && <MyCalendar ShowCalendar={ShowCalendar} setShowCalendar={setShowCalendar} />}
