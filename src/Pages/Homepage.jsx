@@ -5,23 +5,21 @@ import Filter from '../components/Filter'
 import Cards from '../components/Cards'
 import { useState, useEffect } from 'react';
 import DummyProducts from '../../public/data/data';
-import { Link } from 'react-router-dom';
 import SendRequest from '../components/SendRequest';
 import ProductInfo from '../components/ProductInfo';
-import MyCalendar from '../components/Calendar';
 import axios from 'axios';
 
 const Homepage = () => {
   async function getItems() {
     const response = await axios.get("http://localhost:8000/api/auth/barter/items/", {
       withCredentials: true,
-    }).catch(() => {
-
-      setProducts(DummyProducts);
     }).then(() => {
 
        const item_list = response.data;
-      Products = Object.values(response.data);
+      setProducts(Object.values(response.data));
+    }).catch(() => {
+
+      setProducts(DummyProducts);
     })
 
 
