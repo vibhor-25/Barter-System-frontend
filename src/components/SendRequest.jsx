@@ -54,7 +54,7 @@ const SendRequest = ({ShowSendRequest, setShowSendRequest, ShowCalendar, setShow
 
 
             </div>
-<SendReqCards products={MyItems} setSelected={setSelected} Selected={Selected}/>
+<SendReqCards products={MyItems.filter((item) => item.title.toLowerCase().includes(searchVal.toLowerCase()))} setSelected={setSelected} Selected={Selected}/>
     
         </div>
         <div className="next">
