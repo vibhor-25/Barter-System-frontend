@@ -83,7 +83,7 @@ const ProductInfo = ({product, ShowProductInfo, setShowProductInfo, ShowSendRequ
                 </div>
             </div>
             <button onClick={() => setShowSendRequest(true)} className='w-full bg-[rgba(41,71,216,1)] rounded-lg text-xl p-2 text-white font-Inter font-semibold cursor-pointer'>Request swap</button>
-            <button onClick= {handleDivClick} className='w-full flex items-center justify-center bg-white rounded-lg text-xl p-2 text-black font-Inter font-semibold cursor-pointer border-2 mt-4'><Heart size={30} className="text-black pr-2 text-bold" />Add to Wishlist</button>
+            <button onClick= {handleDivClick} className='w-full flex items-center justify-center bg-white rounded-lg text-xl p-1 text-black font-Inter font-semibold cursor-pointer border-2 mt-4'><Heart size={30} className="text-black pr-2 text-bold" />Add to Wishlist</button>
         </div> 
         
     </div>
