@@ -6,9 +6,7 @@ import ProductInfo from "./ProductInfo";
 import axios from "axios";
 
 
-const Cards = ({ products, selectedLoc,showMakeOffer=true, showDistance = true, setCurrentProduct, setShowProductInfo, ShowSendRequest, setShowSendRequest, ShowProductInfo, ProductInfo, CurrentProduct }) => {
-    
-
+const Cards = ({ products, selectedLoc,showMakeOffer=true, showDistance = true, setCurrentProduct, setShowProductInfo }) => {
     const [hoveredId, setHoveredId] = useState(null);
     const handleOnClick = (product) => {
         setCurrentProduct(product)
@@ -17,23 +15,36 @@ const Cards = ({ products, selectedLoc,showMakeOffer=true, showDistance = true, 
     }
 
     return (
-        <>
-            <div className='flex justify-evenly gap-7  flex-wrap my-5 px-5 rounded-lg '>
-                {products.map((product) => (
-                    (selectedLoc === 'All Locations' || product.loc.city === selectedLoc) && (
-                        <div key={product.id}
-                            onMouseEnter={() => setHoveredId(product.id)}
-                            onMouseLeave={() => setHoveredId(null)}
-                            onClick={() => handleOnClick(product)}
-                            className="hover:cursor-pointer card w-61 h-auto p-2 rounded-2xl flex flex-col gap-3 items-start shadow-md hover:scale-102 hover:-translate-y-2 transition-transform duration-300 group relative"
-                            style={{
-                                background: hoveredId === product.id
-                                    ? 'linear-gradient(to bottom right, rgba(111, 133, 235, 1), rgba(112, 255, 217, 1))'
-                                    : 'rgba(237,244,266,1)'
-                            }}>
-                            <div className="relative w-56 h-50">
-                                <img src={product.img} alt={product.title} className='w-full h-full object-cover rounded-2xl' />
-                                {"statusi" in product && <HeartPlus className={`absolute size-7 shadow-lg top-2 right-2 cursor-cell bg-white p-1 font-semibold rounded-full ${product.statusi ? 'text-red-500' : 'text-gray-400'}`} />}
+      <>
+        <div className="flex justify-center gap-7 flex-wrap my-5 p-5 mx-15 rounded-lg shadow-lg">
+          {products.map(
+            (product) =>
+              (selectedLoc === "All Locations" ||
+                product.loc.city === selectedLoc) && (
+                <div
+                  key={product.itemId}
+                  onMouseEnter={() => setHoveredId(product.itemId)}
+                  onMouseLeave={() => setHoveredId(null)}
+                  onClick={() => handleOnClick(product)}
+                  className="hover:cursor-pointer card w-61 h-auto p-2 rounded-2xl flex flex-col gap-3 items-start shadow-md hover:scale-102 hover:-translate-y-2 transition-transform duration-300 group relative"
+                  style={{
+                    background:
+                      hoveredId === product.itemId
+                        ? "linear-gradient(to bottom right, rgba(111, 133, 235, 1), rgba(112, 255, 217, 1))"
+                        : "rgba(237,244,266,1)",
+                  }}
+                >
+                  <div className="relative w-56 h-50">
+                    <img
+                      src={product.images[0]}
+                      alt={product.name}
+                      className="w-full h-full object-cover rounded-2xl"
+                    />
+                    {"statusi" in product && (
+                      <HeartPlus
+                        className={`absolute size-7 shadow-lg top-2 right-2 cursor-cell bg-white p-1 font-semibold rounded-full ${product.condition ? "text-red-500" : "text-gray-400"}`}
+                      />
+                    )}
 
                     <div
                       className={`absolute bottom-1 right-1 bg-[#FFDBC5] text-[#442600] flex items-center gap-1 px-2 py-0.5 rounded-full ${showDistance ? "" : "hidden"}`}
@@ -47,7 +58,7 @@ const Cards = ({ products, selectedLoc,showMakeOffer=true, showDistance = true, 
                     </div>
                   </div>
                   <h3 className="text-[#1C3700] font-Inter font-semibold  text-2xl pl-2 text-left">
-                    {product.title}
+                    {product.name}
                   </h3>
                   <p className="text-[#1C3700] font-Inter font-normal text-0.5xl pl-2 pr-2 pb-4 flex-1">
                     {product.desc}
@@ -65,13 +76,12 @@ const Cards = ({ products, selectedLoc,showMakeOffer=true, showDistance = true, 
                     </button>
                   )}
                 </div>
-              )
-            ))}
-            
-            {/* {ShowProductInfo && <ProductInfo product={product} ShowProductInfo={ShowProductInfo} setShowProductInfo={setShowProductInfo} />} */}
-            </div>
-                       {/* {ShowProductInfo && <ProductInfo product={CurrentProduct} ShowProductInfo={ShowProductInfo} setShowProductInfo={setShowProductInfo} ShowSendRequest={ShowSendRequest} setShowSendRequest={setShowSendRequest}/>}    */}
+              ),
+          )}
+          {/* {ShowProductInfo && <ProductInfo product={product} ShowProductInfo={ShowProductInfo} setShowProductInfo={setShowProductInfo} />} */}
+        </div>
       </>
-    );
+    )
 }
-export default Cards
+
+export default Cards;
