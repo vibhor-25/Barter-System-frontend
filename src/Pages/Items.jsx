@@ -3,13 +3,36 @@ import Menu from '../components/Menu'
 import Cards from '../components/Cards'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import MyItems from '../../public/data/myitems';
+import MyItemsData from '../../public/data/myitems';
 import { Plus } from 'lucide-react';
 import AddItem from '../components/AddItem';
 
 
 const Items = () => {
     const [ShowAddItem, setShowAddItem] = useState(false)
+    const [CurrentProduct, setCurrentProduct] = useState({})
+    const [ShowProductInfo, setShowProductInfo] = useState(false)
+    
+    // Transform hardcoded data to match Cards component format
+    const transformedItems = MyItemsData.map(item => ({
+        itemId: item.id,
+        name: item.title,
+        desc: item.desc,
+        description: item.desc,
+        images: [item.img],
+        img: item.img,
+        loc: {
+            city: item.loc?.city || 'Mumbai',
+            lat: item.loc?.lat || 19.0760,
+            lng: item.loc?.long || 72.8777
+        },
+        condition: 'Used',
+        statusi: false,
+        price: 0
+    }));
+    
+    console.log('Transformed items:', transformedItems);
+
 return (
     <div>
         <img src = 'public/images/MenuBg.png' alt='Background Image' className='fixed top-0 left-0 w-full h-full -z-10 object-cover'/>
@@ -23,7 +46,7 @@ return (
                 <span className='font-Inter font-semibold text-2xl'>Add Item</span>
             </button>
             </div>
-            <Cards showMakeOffer={false} products={MyItems} selectedLoc={'All Locations'} showDistance={false} />
+            <Cards showMakeOffer={false} products={transformedItems} selectedLoc={'All Locations'} showDistance={false} showWishlist={false} setCurrentProduct={setCurrentProduct} setShowProductInfo={setShowProductInfo} />
         </div>
         </div>
 

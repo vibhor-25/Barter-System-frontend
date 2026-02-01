@@ -49,30 +49,39 @@ async function declineItem(itemId) {
 const ReqRecieveCard = ({
   sellerProduct = {},
 }) => {
+  // Handle both nested and flat data structures
+  const product = sellerProduct.sellerProduct || sellerProduct;
+  const images = product.images || (product.img ? [product.img] : []);
+  const name = product.name || product.title || "Product";
+  const desc = product.desc || product.description || "No description";
+  const seller = product.seller || {};
+
   useEffect(() => {
     async function getSeller(itemId) {
-      const response = await axios.post(
-        `http://localhost:8000/api/auth/barter/buyer/${itemId}/`,
-        {},
-        { withCredentials: true },
-      );
-  
-      setBuyer(response.data);
+      if (!itemId) return;
+      try {
+        const response = await axios.post(
+          `http://localhost:8000/api/auth/barter/buyer/${itemId}/`,
+          {},
+          { withCredentials: true },
+        );
     
-      // console.log(response.data);
+        setBuyer(response.data);
+      } catch (error) {
+        console.error('Error fetching buyer:', error);
+      }
     }
-    getSeller(sellerProduct.itemId);
+    getSeller(product.id || product.itemId);
   }, [])
   const [buyer, setBuyer] = useState({})
   
 
   const onAccept = async () => {
-
-    await acceptItem(sellerProduct.itemId);
+    await acceptItem(product.id || product.itemId);
   };
 
   const onDecline = async () => {
-    await declineItem(sellerProduct.itemId);
+    await declineItem(product.id || product.itemId);
   };
 
 
@@ -87,17 +96,17 @@ const ReqRecieveCard = ({
             <div className="images-section">
               <div className="main-image">
                 <img
-                  src={sellerProduct.images[0] || placeholderImg}
-                  alt={sellerProduct.name || "Product"}
+                  src={images[0] || placeholderImg}
+                  alt={name}
                   className=""
                 />
               </div>
 
               <div className="thumbnails-container">
-                {[...Array(sellerProduct.images.length)].map((_, i) => (
+                {images.map((img, i) => (
                   <div key={i} className="thumbnail-image">
                     <img
-                      src={sellerProduct.images[i] || placeholderImg}
+                      src={img || placeholderImg}
                       alt={`Thumbnail ${i}`}
                     />
                   </div>
@@ -108,19 +117,19 @@ const ReqRecieveCard = ({
             <div className="details-section">
               <div className="title-container">
                 <h2 className="product-title">
-                  {sellerProduct.name || "Title"}
+                  {name}
                 </h2>
               </div>
 
               <div className="description-container">
                 <p className="product-description">
-                  {sellerProduct.description || "Description"}
+                  {desc}
                 </p>
               </div>
 
               <div className="condition-badge-container">
                 <button className="condition-badge">
-                  {sellerProduct.condition || "Old"}
+                  {product.condition || "Old"}
                 </button>
               </div>
 
@@ -131,12 +140,12 @@ const ReqRecieveCard = ({
                   <div className="seller-profile-details">
                     <div className="seller-avatar">
                       <img
-                        src={buyer.img || placeholderImg}
-                        alt={buyer.first_name + buyer.last_name || "Seller"}
+                        src={buyer.img || seller.avatar || placeholderImg}
+                        alt={buyer.first_name || seller.name || "Seller"}
                       />
                     </div>
                     <p className="seller-name">
-                      {buyer.first_name + buyer.last_name || "Name"}
+                      {buyer.first_name || seller.name || "Name"}
                     </p>
                   </div>
 

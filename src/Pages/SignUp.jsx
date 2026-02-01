@@ -13,7 +13,9 @@ function SignUp() {
   });
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    if (e && e.preventDefault) {
+      e.preventDefault();
+    }
 
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match");
@@ -34,6 +36,12 @@ function SignUp() {
         navigate("/home");
     } catch (error) {
       console.error("Signup error:", error.response?.data);
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSubmit();
     }
   };
 
@@ -65,6 +73,7 @@ function SignUp() {
                 onChange={(e) =>
                   setFormData({ ...formData, firstName: e.target.value })
                 }
+                onKeyPress={handleKeyPress}
               ></input>
               <input
                 className="inputbox2"
@@ -73,6 +82,7 @@ function SignUp() {
                 onChange={(e) =>
                   setFormData({ ...formData, lastName: e.target.value })
                 }
+                onKeyPress={handleKeyPress}
               ></input>
             </div>
           </div>
@@ -86,6 +96,7 @@ function SignUp() {
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
               }
+              onKeyPress={handleKeyPress}
             ></input>
           </div>
 
@@ -99,6 +110,7 @@ function SignUp() {
               onChange={(e) =>
                 setFormData({ ...formData, password: e.target.value })
               }
+              onKeyPress={handleKeyPress}
             ></input>
           </div>
 
@@ -112,6 +124,7 @@ function SignUp() {
               onChange={(e) =>
                 setFormData({ ...formData, confirmPassword: e.target.value })
               }
+              onKeyPress={handleKeyPress}
             ></input>
           </div>
 

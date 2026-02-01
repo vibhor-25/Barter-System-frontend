@@ -4,22 +4,34 @@ import ReqCard from '../components/ReqCard';
 import RequestRecieve from './RequestRecieve';
 import '../styles/request.css';
 import axios from "axios";
+import sentRequestsData from '../../public/data/reqsent';
 
 
 const Requests = () => {
-    const [sentRequests, setSentRequests] = useState([]);
+    const [sentRequests, setSentRequests] = useState(sentRequestsData);
 
     
     useEffect(() => {
         async function getPendingRequests() {
-            const response = await axios.get(
-              "http://localhost:8000/api/auth/barter/pending-requests/",
-              { withCredentials: true },
-            );
-            
-            const itemsArray = Object.values(response.data);
-            setSentRequests(itemsArray);
-            console.log(itemsArray)
+            try {
+                const response = await axios.get(
+                  "http://localhost:8000/api/auth/barter/pending-requests/",
+                  { withCredentials: true },
+                );
+                
+                const itemsArray = Object.values(response.data);
+                if (itemsArray.length === 0) {
+                    console.log('Backend returned empty requests, using sample data...');
+                    setSentRequests(sentRequestsData);
+                } else {
+                    setSentRequests(itemsArray);
+                }
+                console.log(itemsArray)
+            } catch (error) {
+                console.error('Error fetching pending requests:', error.message);
+                console.log('Using sample data as fallback...');
+                setSentRequests(sentRequestsData);
+            }
         }
         getPendingRequests();
     }, [])
@@ -41,7 +53,7 @@ const Requests = () => {
         <div className='sentrequestsdiv'>
             {activeTab === 1 ? (
             sentRequests.map((item) => (
-                <ReqCard key={item.itemId} product={item} />
+                <ReqCard key={item.id || item.itemId} product={item} />
             ))
             ) : (
             <RequestRecieve/>

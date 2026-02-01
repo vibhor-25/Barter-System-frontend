@@ -1,6 +1,14 @@
 import MyItem from "../../src/Pages/Items";
 import filters from "./filters";
 
+const sellers = [
+    { name: "Marcus Lee", avatar: "https://randomuser.me/api/portraits/men/65.jpg" },
+    { name: "Sarah Wilson", avatar: "https://randomuser.me/api/portraits/women/44.jpg" },
+    { name: "John Doe", avatar: "https://randomuser.me/api/portraits/men/42.jpg" },
+    { name: "Emma Johnson", avatar: "https://randomuser.me/api/portraits/women/50.jpg" },
+    { name: "Alex Kumar", avatar: "https://randomuser.me/api/portraits/men/58.jpg" },
+];
+
 const Products = [
     { id: 1, 
         title: "Vintage Camera", 
@@ -10,7 +18,7 @@ const Products = [
         statusi: true, 
         img: "https://m.media-amazon.com/images/I/81Tib6mb8eL._AC_UY218_.jpg", 
         category: "vintage", loc: { lat: 28.704, lng: 77.102, city: "New Delhi"}, 
-        name: "Marcus Lee", avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+        name: sellers[0].name, avatar: sellers[0].avatar, 
         rating: 4.2, 
         location: "Portland, OR", 
         prodimg: [
@@ -30,8 +38,8 @@ const Products = [
         img: "https://m.media-amazon.com/images/I/81Nm8hF59qL._AC_UY218_.jpg", 
         category: "sports", 
         loc: { lat: 28.704, lng: 77.102, city: "Jaipur"}, 
-        name: "Marcus Lee", 
-        avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+        name: sellers[1].name, 
+        avatar: sellers[1].avatar, 
         rating: 4.2, 
         location: "Portland, OR",
         prodimg: [
@@ -51,8 +59,8 @@ const Products = [
         img: "https://m.media-amazon.com/images/I/5133nEGq6dL._AC_UL640_QL65_.jpg", 
         category: "other", 
         loc: { lat: 19.076, lng: 72.8777, city: "Mumbai"}, 
-        name: "Marcus Lee", 
-        avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+        name: sellers[2].name, 
+        avatar: sellers[2].avatar, 
         rating: 4.2, 
         location: "Portland, OR",
         prodimg: [
@@ -72,8 +80,8 @@ const Products = [
         img: "https://m.media-amazon.com/images/I/71hhHX9VsuL._AC_UL320_.jpg", 
         category: "other", 
         loc: { lat: 19.076, lng: 72.8777, city: "Pune"}, 
-        name: "Marcus Lee", 
-        avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+        name: sellers[3].name, 
+        avatar: sellers[3].avatar, 
         rating: 4.2, 
         location: "Portland, OR",
         prodimg: [
@@ -93,8 +101,8 @@ const Products = [
         img: "https://m.media-amazon.com/images/I/51CG7fT4ShL._AC_UY218_.jpg", 
         category: "kitchen", 
         loc: {city: "Chennai", lat: 13.0827, lng: 80.2707} , 
-        name: "Marcus Lee", 
-        avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+        name: sellers[4].name, 
+        avatar: sellers[4].avatar, 
         rating: 4.2, 
         location: "Portland, OR",
         prodimg: [
@@ -114,8 +122,8 @@ const Products = [
          img: "https://imgs.search.brave.com/dzf_jvB20DGk1E3BnDIusZLJuSRcjwRwPDDyCbvMGJE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNjUx/NDI2OTM3L3Bob3Rv/L3NwYWluLXRvbGVk/by1yb3BlLXVzZWQt/YnktdGhlLXNwYW5p/c2gtaW5xdWlzaXRp/b24taW4tdGhlLTE2/dGgtY2VudHVyeS5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/SmRaRE1oWUotYV9x/NzllM3EzN0hGWFdC/M3MxZFR6TXJxVG43/aUdlaEdNRT0", 
          category: "other", 
          loc :{city: "Ahmedabad", lat: 23.0339, lng: 72.5714} , 
-         name: "Marcus Lee", 
-         avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+         name: sellers[3].name, 
+         avatar: sellers[3].avatar, 
          rating: 4.2, 
          location: "Portland, OR",
         prodimg: [
@@ -134,8 +142,8 @@ const Products = [
         statusi: false, 
         img: "https://m.media-amazon.com/images/I/61frMaBqWgL._AC_UY218_.jpg", 
         category: "watch", loc: { lat: 22.5726, lng: 88.3639, city: "Kolkata"} , 
-        name: "Marcus Lee", 
-        avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+        name: sellers[0].name, 
+        avatar: sellers[0].avatar, 
         rating: 4.2, 
         location: "Portland, OR",
         prodimg: [
@@ -154,8 +162,8 @@ const Products = [
         statusi: false, 
         img: "https://m.media-amazon.com/images/I/61ZQkDvLwZL._AC_UL320_.jpg", 
         category: "other", loc: { lat: 22.5726, lng: 88.3639, city: "Hyderabad"}, 
-        name: "Marcus Lee", 
-        avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+        name: sellers[1].name, 
+        avatar: sellers[1].avatar, 
         rating: 4.2, 
         location: "Portland, OR",
         prodimg: [
@@ -175,7 +183,7 @@ const Products = [
         img: "https://m.media-amazon.com/images/I/61uX7ji6B5L._AC_UL320_.jpg", 
         category: "toys", 
         loc: { lat: 12.9716, lng: 77.5946, city: "Bangalore"} , 
-        name: "Marcus Lee", avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+        name: sellers[2].name, avatar: sellers[2].avatar, 
         rating: 4.2, 
         location: "Portland, OR",
         prodimg: [
@@ -195,7 +203,7 @@ const Products = [
         img: "https://t4.ftcdn.net/jpg/14/16/02/13/240_F_1416021396_jYPJRRV5YAojTcPFHn6B5DYow89C6VAB.jpg", 
         category: "rare", 
         loc: { lat: 12.9716, lng: 77.5946, city: "Chandigarh"}, 
-        name: "Marcus Lee", avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+        name: sellers[3].name, avatar: sellers[3].avatar, 
         rating: 4.2, 
         location: "Portland, OR",
         prodimg: [
@@ -215,8 +223,8 @@ const Products = [
          img: "https://m.media-amazon.com/images/I/61muHlVnHYL._AC_UL320_.jpg", 
          category: "sports", 
          loc: { lat: 28.6139, lng: 77.209, city: "Lucknow"}, 
-         name: "Marcus Lee", 
-         avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+         name: sellers[4].name, 
+         avatar: sellers[4].avatar, 
          rating: 4.2, 
          location: "Portland, OR",
         prodimg: [
@@ -235,7 +243,7 @@ const Products = [
          img: "https://m.media-amazon.com/images/I/611AjN7Wq9L._AC_UL320_.jpg", 
          category: "electronics", 
          loc: { lat: 28.6139, lng: 77.209, city: "Varanasi"} , 
-         name: "Marcus Lee", avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+         name: sellers[0].name, avatar: sellers[0].avatar, 
          rating: 4.2, 
          location: "Portland, OR",
         prodimg: [
@@ -254,8 +262,8 @@ const Products = [
          img: "https://m.media-amazon.com/images/I/71quB2GTUKL._AC_UY218_.jpg",
         category: "electronics", 
         loc: { lat: 26.9124, lng: 75.7873, city: "Jaipur"}, 
-        name: "Marcus Lee", 
-        avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+        name: sellers[1].name, 
+        avatar: sellers[1].avatar, 
         rating: 4.2, 
         location: "Portland, OR",
         prodimg: [
@@ -274,7 +282,7 @@ const Products = [
          img: "https://m.media-amazon.com/images/I/71mInNZP1UL._AC_UL320_.jpg", 
          category: "sports", 
          loc: { lat: 26.9124, lng: 75.7873, city: "Udaipur"} ,
-        name: "Marcus Lee", avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+        name: sellers[2].name, avatar: sellers[2].avatar, 
         rating: 4.2, 
         location: "Portland, OR",
         prodimg: [
@@ -293,8 +301,8 @@ const Products = [
          img: "https://m.media-amazon.com/images/I/71o6CU8MqVL._AC_UY218_.jpg", 
          category: "electronics", 
          loc: { lat: 25.3176, lng: 82.9739, city: "Varanasi"}, 
-         name: "Marcus Lee", 
-         avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+         name: sellers[3].name, 
+         avatar: sellers[3].avatar, 
          rating: 4.2, 
          location: "Portland, OR",
         prodimg: [
@@ -313,8 +321,8 @@ const Products = [
          img: "https://m.media-amazon.com/images/I/715pEXpp-0L._AC_UL320_.jpg", 
          category: "other", 
          loc: { lat: 25.3176, lng: 82.9739, city: "Patna"}, 
-         name: "Marcus Lee", 
-         avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+         name: sellers[4].name, 
+         avatar: sellers[4].avatar, 
          rating: 4.2, 
          location: "Portland, OR",
         prodimg: [
@@ -333,8 +341,8 @@ const Products = [
          img: "https://m.media-amazon.com/images/I/61G2USexrDL._AC_UY218_.jpg", 
          category: "kitchen", 
          loc: { lat: 23.2599, lng: 77.4126, city: "Bhopal"}, 
-         name: "Marcus Lee", 
-         avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+         name: sellers[0].name, 
+         avatar: sellers[0].avatar, 
          rating: 4.2, 
          location: "Portland, OR",
         prodimg: [
@@ -351,7 +359,7 @@ const Products = [
          price: 22, statusi: false, 
          img: "https://m.media-amazon.com/images/I/81mjkv25b5L._AC_UL320_.jpg", 
          category: "other", loc: { lat: 23.2599, lng: 77.4126, city: "Indore"}, 
-         name: "Marcus Lee", avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+         name: sellers[1].name, avatar: sellers[1].avatar, 
          rating: 4.2, 
          location: "Portland, OR",
         prodimg: [
@@ -370,8 +378,8 @@ const Products = [
          img: "https://m.media-amazon.com/images/I/51w9roMijiL._AC_UY218_.jpg", 
          category: "electronics", 
          loc: { lat: 21.1458, lng: 79.0882, city: "Nagpur"} , 
-         name: "Marcus Lee", 
-         avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+         name: sellers[2].name, 
+         avatar: sellers[2].avatar, 
          rating: 4.2, 
          location: "Portland, OR",
         prodimg: [
@@ -390,8 +398,8 @@ const Products = [
          img: "https://m.media-amazon.com/images/I/717UeE1dPyL._AC._SR360,460.jpg", 
          category: "other", 
          loc :{city: "Surat", lat: 21.1702, lng: 72.8311}, 
-         name: "Marcus Lee", 
-         avatar: "https://randomuser.me/api/portraits/men/65.jpg", 
+         name: sellers[4].name, 
+         avatar: sellers[4].avatar, 
          rating: 4.2, 
          location: "Portland, OR",
         prodimg: [

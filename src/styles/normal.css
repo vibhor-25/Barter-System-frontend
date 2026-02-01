@@ -20,7 +20,7 @@ body {
     position: absolute; 
     display: flex;       
     width: 73.611vw;
-    height: 64.648vh;
+    height: 68vh;
     z-index: 1;
     top: 19.726vh;
     left: 13.194vw;
@@ -31,7 +31,7 @@ body {
 }
 .Mainbg {
     /*height: 64.648vh;*/
-    max-height: 64.648vh;
+    max-height: 68vh;
     border-bottom-left-radius: 50px;
     border-top-left-radius: 50px;
     width: 36.736vw;

@@ -29,7 +29,7 @@ const Filter = ({ isOpen, onClose, SelectedFilter, setSelectedFilter }) => {
           <h3 className="font-semibold mb-2">Categories</h3>
           <div className="flex flex-wrap gap-2">
             {filters.map((cat) => (
-              <div key={cat} onClick={() => handleFilterOnClick(cat)} className={`${SelectedFilter.includes(cat)  ? 'bg-black text-white' : 'bg-white texy-gray-600'} px-3 py-1 rounded-xl text-sm font-medium cursor-pointer `}>
+              <div key={cat} onClick={() => handleFilterOnClick(cat)} className={`${SelectedFilter.includes(cat)  ? 'bg-black text-white' : 'bg-white text-gray-600'} px-3 py-1 rounded-xl text-sm font-medium cursor-pointer `}>
                 {SelectedFilter.includes(cat) && <Check className="inline ml-2" />}
                 {cat}
               </div>

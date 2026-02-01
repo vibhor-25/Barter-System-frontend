@@ -61,7 +61,7 @@ const ProductInfo = ({
 
   return (
     <div
-      className={`popup-box ${ShowProductInfo ? "" : "hidden"} !flex !flex-row p-8 gap-10 bg-white rounded-3xl max-w-4xl relative`}
+      className={`popup-box ${ShowProductInfo ? "" : "hidden"} flex! flex-row! p-8 gap-10 bg-white rounded-3xl max-w-4xl relative`}
     >
       <X
         size={30}
